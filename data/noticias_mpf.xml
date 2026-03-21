@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:syn="http://purl.org/rss/1.0/modules/syndication/" xmlns="http://purl.org/rss/1.0/">
+
+
+
+<channel rdf:about="https://www.mpf.mp.br/RSS">
+  <title>Ministério Público Federal</title>
+  <link>https://www.mpf.mp.br</link>
+  <description></description>
+  <image rdf:resource="https://www.mpf.mp.br/logo.png" />
+
+  <items>
+    <rdf:Seq>
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/arquivos" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/noticias" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/povos-e-comunidades-tradicionais" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/povos-e-comunidades-tradicionais" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/mpf-na-cop30" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/mpf-na-cop30" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/o-mpf/unidades/pr-pb/noticias/mpf-visita-comunidades-quilombolas-e-ranchos-ciganos-no-sertao-da-paraiba" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/mpf-define-estrategias-de-atuacao-para-cumprimento-de-medidas-impostas-pelo-sistema-interamericano-de-direitos-humanos" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/o-mpf/unidades/prr6/noticias/trf6-garante-que-crianca-estude-na-mesma-escola-da-irma-em-centro-pedagogico-da-ufmg" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/dia-mundial-da-agua-mpf-lanca-videocast-sobre-a-atuacao-socioambiental-na-bacia-do-rio-sao-francisco" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/atuacao/eleitoral/pge/coordenacao-eleitoral-genafe/10-assedio-eleitoral-1" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/atuacao/eleitoral/pge/coordenacao-eleitoral-genafe/9-combate-ao-crime-organizado-no-processo-eleitoral-1" />
+      
+        <rdf:li rdf:resource="https://www.mpf.mp.br/o-mpf/unidades/pr-ro/noticias/mpf-mpt-e-dpu-debatem-impactos-climaticos-e-criacao-de-comite-de-bacia-do-rio-madeira-em-porto-velho-ro" />
+      
+    </rdf:Seq>
+  </items>
+
+</channel>
+
+
+  <item rdf:about="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro">
+    <title>Guardião do Futuro</title>
+    <link>https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+    <dc:date>2026-03-20T22:16:00Z</dc:date>
+    <dc:type>Document</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro">
+    <title>Guardião do Futuro</title>
+    <link>https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+    <dc:date>2026-03-20T22:16:16Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/arquivos">
+    <title>arquivos</title>
+    <link>https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/arquivos</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+    <dc:date>2026-03-20T22:00:22Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/noticias">
+    <title>Notícias Guardião do Futuro</title>
+    <link>https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/noticias</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+    <dc:date>2026-03-20T21:57:39Z</dc:date>
+    <dc:type>Collection</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/povos-e-comunidades-tradicionais">
+    <title>Povos e comunidades tradicionais</title>
+    <link>https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/povos-e-comunidades-tradicionais</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+    <dc:date>2026-03-20T21:48:24Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/povos-e-comunidades-tradicionais">
+    <title>Povos e comunidades tradicionais</title>
+    <link>https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/povos-e-comunidades-tradicionais</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+    <dc:date>2026-03-20T21:48:16Z</dc:date>
+    <dc:type>Collection</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/mpf-na-cop30">
+    <title>MPF na COP30</title>
+    <link>https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/mpf-na-cop30</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+    <dc:date>2026-03-20T21:43:35Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/mpf-na-cop30">
+    <title>MPF na COP30</title>
+    <link>https://www.mpf.mp.br/comunicacao/campanhas-nacionais/guardiao-do-futuro/mpf-na-cop30</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+    <dc:date>2026-03-20T21:43:00Z</dc:date>
+    <dc:type>Collection</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/o-mpf/unidades/pr-pb/noticias/mpf-visita-comunidades-quilombolas-e-ranchos-ciganos-no-sertao-da-paraiba">
+    <title>MPF visita comunidades quilombolas e ranchos ciganos no Sertão da Paraíba</title>
+    <link>https://www.mpf.mp.br/o-mpf/unidades/pr-pb/noticias/mpf-visita-comunidades-quilombolas-e-ranchos-ciganos-no-sertao-da-paraiba</link>
+    <description>Objetivo foi ouvir as pessoas e buscar soluções para problemas</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+    <dc:date>2026-03-20T21:33:00Z</dc:date>
+    <dc:type>Noticia</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/mpf-define-estrategias-de-atuacao-para-cumprimento-de-medidas-impostas-pelo-sistema-interamericano-de-direitos-humanos">
+    <title>MPF define estratégias de atuação para cumprimento de medidas impostas pelo Sistema Interamericano de Direitos Humanos</title>
+    <link>https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/mpf-define-estrategias-de-atuacao-para-cumprimento-de-medidas-impostas-pelo-sistema-interamericano-de-direitos-humanos</link>
+    <description>Grupos de Atuação Conjunta buscam agilizar o cumprimento de decisões da Corte IDH e da CIDH em casos emblemáticos, como os assassinatos de Bruno e Dom e a proteção de povos indígenas</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+      <dc:subject>*PFDC</dc:subject>
+    
+    <dc:date>2026-03-20T21:29:33Z</dc:date>
+    <dc:type>Noticia</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/o-mpf/unidades/prr6/noticias/trf6-garante-que-crianca-estude-na-mesma-escola-da-irma-em-centro-pedagogico-da-ufmg">
+    <title>TRF6 garante que criança estude na mesma escola da irmã em centro pedagógico da UFMG</title>
+    <link>https://www.mpf.mp.br/o-mpf/unidades/prr6/noticias/trf6-garante-que-crianca-estude-na-mesma-escola-da-irma-em-centro-pedagogico-da-ufmg</link>
+    <description>Decisão segue entendimento do MPF e garante o direito de irmãos estudarem juntos na educação básica</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+      <dc:subject>*PFDC</dc:subject>
+    
+    <dc:date>2026-03-20T21:21:14Z</dc:date>
+    <dc:type>Noticia</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/dia-mundial-da-agua-mpf-lanca-videocast-sobre-a-atuacao-socioambiental-na-bacia-do-rio-sao-francisco">
+    <title>Dia Mundial da Água: MPF lança videocast sobre a atuação socioambiental na bacia do Rio São Francisco</title>
+    <link>https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/dia-mundial-da-agua-mpf-lanca-videocast-sobre-a-atuacao-socioambiental-na-bacia-do-rio-sao-francisco</link>
+    <description>Episódio “Velho Chico Pulsa” integra a campanha Guardião do Futuro, Protetor de Direitos</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+      <dc:subject>*4CCR</dc:subject>
+    
+      <dc:subject>*6CCR</dc:subject>
+    
+    <dc:date>2026-03-20T20:52:43Z</dc:date>
+    <dc:type>Noticia</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/atuacao/eleitoral/pge/coordenacao-eleitoral-genafe/10-assedio-eleitoral-1">
+    <title>10. Enfrentamento ao Assédio Eleitoral</title>
+    <link>https://www.mpf.mp.br/atuacao/eleitoral/pge/coordenacao-eleitoral-genafe/10-assedio-eleitoral-1</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+    <dc:date>2026-03-20T20:31:29Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/atuacao/eleitoral/pge/coordenacao-eleitoral-genafe/9-combate-ao-crime-organizado-no-processo-eleitoral-1">
+    <title>9. Combate ao crime organizado no processo Eleitoral</title>
+    <link>https://www.mpf.mp.br/atuacao/eleitoral/pge/coordenacao-eleitoral-genafe/9-combate-ao-crime-organizado-no-processo-eleitoral-1</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+    <dc:date>2026-03-20T20:30:50Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.mpf.mp.br/o-mpf/unidades/pr-ro/noticias/mpf-mpt-e-dpu-debatem-impactos-climaticos-e-criacao-de-comite-de-bacia-do-rio-madeira-em-porto-velho-ro">
+    <title>MPF, MPT e DPU debatem impactos climáticos e criação de comitê de bacia do Rio Madeira em Porto Velho (RO)</title>
+    <link>https://www.mpf.mp.br/o-mpf/unidades/pr-ro/noticias/mpf-mpt-e-dpu-debatem-impactos-climaticos-e-criacao-de-comite-de-bacia-do-rio-madeira-em-porto-velho-ro</link>
+    <description>Audiência pública reuniu comunidades ribeirinhas e indígenas para discutir participação social e governança hídrica na região</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+      <dc:subject>*4CCR</dc:subject>
+    
+      <dc:subject>Mudanças climáticas</dc:subject>
+    
+      <dc:subject>Meio Ambiente</dc:subject>
+    
+      <dc:subject>Audiência Pública</dc:subject>
+    
+    <dc:date>2026-03-20T20:22:00Z</dc:date>
+    <dc:type>Noticia</dc:type>
+  </item>
+
+
+
+</rdf:RDF>

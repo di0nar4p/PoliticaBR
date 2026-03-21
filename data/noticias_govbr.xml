@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:syn="http://purl.org/rss/1.0/modules/syndication/" xmlns="http://purl.org/rss/1.0/">
+
+
+
+<channel rdf:about="https://www.gov.br/pt-br/noticias/RSS">
+  <title>Notícias</title>
+  <link>https://www.gov.br/pt-br/noticias</link>
+  <description></description>
+  <image rdf:resource="https://www.gov.br/logo.png" />
+
+  <items>
+    <rdf:Seq>
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/servicos-para-o-cidadao" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/cop30" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/conta-de-luz-tera-bandeira-verde-em-setembro" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/forcas-armadas" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/meio-ambiente-e-clima" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/viagens-e-turismo" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/artigos" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/colecoes-em-alta" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/ForaNacional20190427.jpeg/view" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/copy_of_ForaNacional20190427.jpeg/view" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/financas-impostos-e-gestao-publica" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/assistencia-social" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/justica-e-seguranca" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/educacao-e-pesquisa" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/cultura-artes-historia-e-esportes" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/saude-e-vigilancia-sanitaria" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/trabalho-e-previdencia" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/energia-minerais-e-combustiveis" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/ciencia-e-tecnologia" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/bolsa-familia-e-recriado-com-minimo-de-r-600-por-familia-e-mais-r-150-por-crianca-de-ate-seis-anos" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/novo-pac-investimento-de-r-30-5-bilhoes-na-saude-ampliara-atendimento-pelo-sus" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/marcha-das-margaridas-retorna-a-brasilia-com-expectativa-de-mais-de-100-mil-mulheres-de-todo-o-brasil" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/mais-noticias" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/comunicacao" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/ultimas-noticias" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/agricultura-e-pecuaria" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/termos-de-uso-de-redes-sociais" />
+      
+        <rdf:li rdf:resource="https://www.gov.br/pt-br/noticias/transito-e-transportes" />
+      
+    </rdf:Seq>
+  </items>
+
+</channel>
+
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/servicos-para-o-cidadao">
+    <title>Serviços para o cidadão</title>
+    <link>https://www.gov.br/pt-br/noticias/servicos-para-o-cidadao</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2021-02-19T13:59:43Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/cop30">
+    <title>COP30</title>
+    <link>https://www.gov.br/pt-br/noticias/cop30</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+      <dc:subject>COP30</dc:subject>
+    
+    <dc:date>2024-09-26T20:27:10Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/conta-de-luz-tera-bandeira-verde-em-setembro">
+    <title>Conta de luz terá bandeira verde em setembro</title>
+    <link>https://www.gov.br/pt-br/noticias/conta-de-luz-tera-bandeira-verde-em-setembro</link>
+    <description>A Aneel anunciou que não haverá acréscimo na conta para além do que é consumido</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+   
+            
+
+            <div id="parent-fieldname-text" class="">
+              <div property="rnews:articleBody"><p style="text-align: left; ">O mês de setembro terá Bandeira Verde para todos os consumidores de energia conectados ao Sistema Interligado Nacional. A Agência Nacional de Energia Elétrica (Aneel) anunciou, nesta sexta-feira (26/08), que não haverá acréscimo para além do que é consumido pelos cidadãos brasileiros.</p>
+<p style="text-align: left; ">Criado pela Aneel, o sistema de bandeiras tarifárias sinaliza o custo real da energia gerada, possibilitando aos consumidores o bom uso da energia elétrica, especialmente quando as condições de geração não são favoráveis, como nos períodos de seca.</p>
+<p style="text-align: left; ">De acordo com a agência, as condições de geração de energia elétrica nas usinas hidrelétricas seguem favoráveis no momento, não sendo necessário acionar usinas mais caras, o que resultaria em taxas extras nas contas de energia elétrica. Este é o quinto mês consecutivo sem cobrança adicional para os consumidores.</p>
+<p style="text-align: left; ">O funcionamento das bandeiras tarifárias é simples: as cores verde, amarela ou vermelha (nos patamares 1 e 2) indicam se a energia custará mais ou menos em função das condições de geração.</p>
+<p style="text-align: left; ">No caso da Bandeira Verde, as condições são favoráveis de geração e não tem custo adicional. Na Bandeira Amarela, as condições são menos favoráveis e é cobrada uma taxa extra de R$ 2,989 a cada 100 quilowatts-hora (kWh) consumidos.</p>
+<p style="text-align: left; ">Na Bandeira Vermelha 1, as condições de geração são desfavoráveis, por isso é cobrada uma taxa de R$ 6,50 a cada 100 kWh consumidos. Já a Bandeira Vermelha 2 indica condições muito desfavoráveis, o valor extra é de R$ 9,795 a cada 100 kWh consumidos.</p>
+<p style="text-align: left; ">No ano passado foi criada a bandeira Escassez Hídrica para cobrir custos de geração, transmissão e distribuição de energia durante o período de seca, quando é preciso acionar as termelétricas, que custam mais caras. Essa bandeira vigorou até o começo de abril deste ano. Nesse caso, a taxa extra era de R$ 14,20 a cada 100 kWh consumidos.</p>
+<p style="text-align: left; ">Segundo a Aneel, as bandeiras dão transparência ao custo real da energia e permitem ao consumidor se programar e ter um consumo mais consciente.</p></div>
+            </div>
+          
+
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+      <dc:subject>Bandeira tarifária</dc:subject>
+    
+      <dc:subject>Bandeira Verde</dc:subject>
+    
+    <dc:date>2022-08-26T21:33:32Z</dc:date>
+    <dc:type>collective.nitf.content</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/forcas-armadas">
+    <title>Forças Armadas e Defesa Civil</title>
+    <link>https://www.gov.br/pt-br/noticias/forcas-armadas</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2023-01-03T02:33:00Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/meio-ambiente-e-clima">
+    <title>Meio Ambiente</title>
+    <link>https://www.gov.br/pt-br/noticias/meio-ambiente-e-clima</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2018-02-15T18:49:34Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/viagens-e-turismo">
+    <title>Turismo</title>
+    <link>https://www.gov.br/pt-br/noticias/viagens-e-turismo</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2017-12-28T23:42:46Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/artigos">
+    <title>Artigos</title>
+    <link>https://www.gov.br/pt-br/noticias/artigos</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+      <dc:subject>Artigos</dc:subject>
+    
+    <dc:date>2018-05-22T20:04:00Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/colecoes-em-alta">
+    <title>Coleções em alta</title>
+    <link>https://www.gov.br/pt-br/noticias/colecoes-em-alta</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2018-05-26T17:51:03Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/ForaNacional20190427.jpeg/view">
+    <title>Divulgação/Força Nacional</title>
+    <link>https://www.gov.br/pt-br/noticias/ForaNacional20190427.jpeg/view</link>
+    <description>Novo grupo da Força Nacional embarca para Moçambique</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+   
+  <div class="image-product">
+    <img style="max-width: 100%;" src="https://www.gov.br/pt-br/noticias/ForaNacional20190427.jpeg/@@images/image" title="Divulgação/Força Nacional" alt="Divulgação/Força Nacional" />
+    <div class="discreet">
+        <div>
+            
+        </div>
+        <div>
+            <a title="Download" href="https://www.gov.br/pt-br/noticias/ForaNacional20190427.jpeg/download">
+                <i class="fas fa-download"></i>
+            </a>
+            <a href="https://www.gov.br/pt-br/noticias/ForaNacional20190427.jpeg/image_view_fullscreen" title="title">
+            <i class="fas fa-expand"></i>
+            </a>
+        </div>
+    </div>
+    
+  </div>
+
+
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2022-11-23T12:42:12Z</dc:date>
+    <dc:type>Image</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/copy_of_ForaNacional20190427.jpeg/view">
+    <title>Divulgação/Força Nacional</title>
+    <link>https://www.gov.br/pt-br/noticias/copy_of_ForaNacional20190427.jpeg/view</link>
+    <description>Novo grupo da Força Nacional embarca para Moçambique</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+   
+  <div class="image-product">
+    <img style="max-width: 100%;" src="https://www.gov.br/pt-br/noticias/copy_of_ForaNacional20190427.jpeg/@@images/image" title="Divulgação/Força Nacional" alt="Divulgação/Força Nacional" />
+    <div class="discreet">
+        <div>
+            
+        </div>
+        <div>
+            <a title="Download" href="https://www.gov.br/pt-br/noticias/copy_of_ForaNacional20190427.jpeg/download">
+                <i class="fas fa-download"></i>
+            </a>
+            <a href="https://www.gov.br/pt-br/noticias/copy_of_ForaNacional20190427.jpeg/image_view_fullscreen" title="title">
+            <i class="fas fa-expand"></i>
+            </a>
+        </div>
+    </div>
+    
+  </div>
+
+
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2022-11-23T12:42:12Z</dc:date>
+    <dc:type>Image</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/financas-impostos-e-gestao-publica">
+    <title>Economia e Gestão Pública</title>
+    <link>https://www.gov.br/pt-br/noticias/financas-impostos-e-gestao-publica</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2018-01-08T17:11:42Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/assistencia-social">
+    <title>Cidadania e Assistência Social</title>
+    <link>https://www.gov.br/pt-br/noticias/assistencia-social</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2018-01-31T14:12:30Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/justica-e-seguranca">
+    <title>Justiça e Segurança</title>
+    <link>https://www.gov.br/pt-br/noticias/justica-e-seguranca</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2017-12-29T00:12:30Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/educacao-e-pesquisa">
+    <title>Educação e Pesquisa</title>
+    <link>https://www.gov.br/pt-br/noticias/educacao-e-pesquisa</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2018-01-31T16:55:28Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/cultura-artes-historia-e-esportes">
+    <title>Cultura e Esporte</title>
+    <link>https://www.gov.br/pt-br/noticias/cultura-artes-historia-e-esportes</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2017-12-27T20:38:49Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/saude-e-vigilancia-sanitaria">
+    <title>Saúde</title>
+    <link>https://www.gov.br/pt-br/noticias/saude-e-vigilancia-sanitaria</link>
+    <description>Notícias e outras informações sobre Saúde e Vigilância Sanitária no Brasil</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2017-12-27T21:38:00Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/trabalho-e-previdencia">
+    <title>Trabalho e Previdência</title>
+    <link>https://www.gov.br/pt-br/noticias/trabalho-e-previdencia</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2018-02-12T14:45:32Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/energia-minerais-e-combustiveis">
+    <title>Energia</title>
+    <link>https://www.gov.br/pt-br/noticias/energia-minerais-e-combustiveis</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2018-02-05T18:21:00Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/ciencia-e-tecnologia">
+    <title>Ciência e Tecnologia</title>
+    <link>https://www.gov.br/pt-br/noticias/ciencia-e-tecnologia</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2023-02-23T18:18:39Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/bolsa-familia-e-recriado-com-minimo-de-r-600-por-familia-e-mais-r-150-por-crianca-de-ate-seis-anos">
+    <title>Bolsa Família é recriado com mínimo de R$ 600 por família e mais R$ 150 por criança de até seis anos</title>
+    <link>https://www.gov.br/pt-br/noticias/bolsa-familia-e-recriado-com-minimo-de-r-600-por-familia-e-mais-r-150-por-crianca-de-ate-seis-anos</link>
+    <description>MP que reinstitui o programa também prevê R$ 50 a mais para cada criança de sete a 18 anos. Assinatura do presidente Lula será nesta quinta, 2/3, em cerimônia no Palácio do Planalto</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+   
+            
+
+            <div id="parent-fieldname-text" class="">
+              <div property="rnews:articleBody"><p>O Bolsa Família está de volta com toda a integralidade de conceitos e instrumentos que fizeram dele o maior programa de transferência de renda e combate à fome da história do país. O programa será oficialmente retomado nesta quinta-feira, 2/3. Em cerimônia no Palácio do Planalto a partir das 11h, o presidente Luiz Inácio Lula da Silva assina a Medida Provisória que define os parâmetros da política pública.</p>
+<p>Todas as famílias beneficiárias receberão um valor mínimo de R$ 600 e serão criados dois benefícios complementares, pensados para atender de forma mais adequada o tamanho e as características de cada família.</p>
+<p>Um deles é voltado para dar atenção especial à Primeira Infância. Determina um valor adicional de R$ 150 para cada criança de até seis anos de idade na composição familiar. Um segundo, chamado Benefício Variável Familiar, prevê um adicional de R$ 50 para cada integrante da família com idade entre sete e 18 anos incompletos e para gestantes.</p>
+<p>Mais do que uma ação de transferência de renda, o Bolsa Família é um instrumento da estratégia de redução da pobreza, de combate à fome e de promoção da educação e da saúde do Governo Federal.</p>
+<p>Até por isso, o programa volta a enfatizar condicionalidades estratégicas e históricas, como a exigência de frequência escolar para crianças e adolescentes de famílias beneficiárias, o acompanhamento pré-Natal para gestantes e a atualização do caderno de vacinação com todos os imunizantes previstos no Programa Nacional de Imunizações do Ministério da Saúde.</p>
+<p><strong>CADASTRO APRIMORADO</strong> — Desde que assumiu a gestão em 1º de janeiro, o Governo Federal tem trabalhado no aprimoramento do Cadastro Único (base de dados e porta de entrada para programas sociais) e em uma agenda de busca ativa em parceria com estados e municípios. A intenção é garantir que o benefício chegue a quem de fato necessite e detectar famílias que deveriam fazer parte do programa e que atualmente não estão nele.</p>
+<p><strong>QUEM RECEBE</strong> — O Bolsa Família é voltado para famílias em situação de vulnerabilidade econômica e social. Para serem habilitadas, elas precisam atender critérios de elegibilidade, como apresentar renda per capita classificada como situação de pobreza ou de extrema pobreza, ter os dados atualizados no Cadastro Único e não ter informações divergentes entre as declaradas no cadastro e em outras bases de dados federais.</p>
+<p>A seleção considera a estimativa de pobreza, a quantidade de famílias atendidas em cada município e o limite orçamentário. Com a nova legislação, terão acesso ao programa todas as famílias que têm renda de até R$ 218 por pessoa.</p>
+<p><strong>AGENDAS TRANSVERSAIS</strong> — O Bolsa Família se casa com uma série de ações já tomadas e no horizonte próximo do Governo Federal para fortalecer a proteção social e dinamizar o mercado de trabalho. Agenda que inclui a política de valorização do salário mínimo, a retomada de 14 mil obras paralisadas e do Minha Casa Minha Vida, com foco na geração de emprego e renda e no atendimento das faixas mais vulneráveis da população.</p>
+<p>A agenda transversal inclui ainda ações como a reinstalação do Conselho Nacional de Segurança Alimentar e Nutricional (Consea), instância que reúne entidades da sociedade civil e governo na articulação, formulação e implementação de políticas de combate à fome e de promoção da alimentação de qualidade. Tem ligação também com o Movimento Nacional pela Vacinação, iniciado na última segunda-feira (27/2) para reconstruir a confiança nos imunizantes e retomar a cultura de vacinação no país.</p>
+<p>O Bolsa Família se conecta, adicionalmente, com o Programa de Aquisição de Alimentos (PAA), que será retomado e garante a compra direta de alimentos da produção de agricultores familiares para uso na merenda escolar, em restaurantes comunitários e em diversas instituições da rede de assistência social. Conversa ainda com a área de educação, que vai ampliar o acesso ao ensino integral, para aprimorar a formação escolar das crianças e jovens.</p>
+<hr />
+<h2>SERVIÇO</h2>
+<p><em><strong>Cerimônia de relançamento do programa Bolsa Família</strong></em><br />Data: 2 de março, quinta-feira<br />Horário: 11h (horário de Brasília)<br />Local: Palácio do Planalto | Brasília (DF)<br /><i class="fas fa-link"> </i> <a class="external-link" href="https://www.gov.br/planalto/pt-br/credenciamento-de-imprensa/cobertura-diaria" target="_blank" title="Credenciamento Diário" data-tippreview-enabled="false" data-tippreview-image="" data-tippreview-title="">LINK para o credenciamento de imprensa</a></p>
+<pre class="callout"><span class="discreet">mais informações: imprensa@cidadania.gov.br / (61) 2030.2649</span></pre></div>
+            </div>
+          
+
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+      <dc:subject>Bolsa Família</dc:subject>
+    
+      <dc:subject>Transferência de renda</dc:subject>
+    
+    <dc:date>2023-03-01T22:03:37Z</dc:date>
+    <dc:type>collective.nitf.content</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/novo-pac-investimento-de-r-30-5-bilhoes-na-saude-ampliara-atendimento-pelo-sus">
+    <title>Novo PAC: investimento de R$ 30,5 bilhões na Saúde ampliará atendimento pelo SUS</title>
+    <link>https://www.gov.br/pt-br/noticias/novo-pac-investimento-de-r-30-5-bilhoes-na-saude-ampliara-atendimento-pelo-sus</link>
+    <description>Recursos serão aplicados em áreas como o aumento no número de hospitais e UBS, a melhoria do atendimento oncológico e a universalização de serviços essenciais, como o SAMU 192</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+   
+            
+
+            <div id="parent-fieldname-text" class="">
+              <div property="rnews:articleBody"><p>O Novo PAC destinará R$ 30,5 bilhões para a Saúde até 2026. O investimento ampliará a assistência à população pelo SUS, além de impulsionar ações voltadas à saúde digital e o incremento do parque industrial do setor.</p>
+<p>A maior parcela dos recursos está voltada ao enfrentamento de gargalos históricos na atenção especializada, como a melhoria do atendimento oncológico e o aumento do número de hospitais no país. O programa possibilitará, nos próximos quatro anos, a universalidade de serviços essenciais na rede pública, como o SAMU 192.</p>
+<p>O investimento do Novo PAC na Saúde será feito a partir de cinco pilares: Atenção Primária, Atenção Especializada, Preparação para Emergências em Saúde, Complexo Industrial da Saúde e Telessaúde.</p>
+<p><a class="external-link" href="https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/2023/08/lula-pac-e-o-estado-a-servico-dos-sonhos-dos-brasileiros-por-uma-vida-melhor" target="_blank" data-tippreview-enabled="true" data-tippreview-image="" data-tippreview-title="" data-tippy="">O Novo PAC foi anunciado pelo presidente Lula na sexta-feira (11)</a>. O programa vai investir R$ 1,7 trilhão em obras de infraestrutura econômica, social e urbana em todos os estados do Brasil.</p>
+<p><span><a class="external-link" href="https://www.gov.br/casacivil/novopac/" target="_blank" title="" data-tippreview-enabled="false" data-tippreview-image="" data-tippreview-title="">» Clique e confira informações detalhadas no Portal do Novo PAC</a></span></p>
+<p><span><strong>EXPANSÃO DO SUS</strong> </span>-<span> </span>O novo PAC terá investimentos em áreas estruturantes para o SUS, como serviços de saúde na Atenção Primária e na Atenção Especializada. Além da ampliação dos serviços de saúde, o programa destinará recursos para obras e novas unidades, fundamentais para garantir o acesso à saúde principalmente para as populações em regiões de maior vulnerabilidade.</p>
+<p class="callout">Com R$ 7,4 bilhões de recursos até 2026, serão entregues 3,6 mil Unidades Básicas de Saúde em todo Brasil, sendo 57% nas regiões Norte e Nordeste. Desse total, 600 terão as obras concluídas e 3 mil serão construídas para superar os vazios assistenciais nas áreas que historicamente sofrem com falta de estrutura. Essa expansão vai garantir o acesso à saúde para mais 13,5 milhões de brasileiros, totalizando uma cobertura de 73,1% de toda a população.</p>
+<p>Com as novas UBS, 4,5 mil novas equipes de Saúde da Família passarão a atuar para garantir o atendimento à população. As unidades também contarão com salas de amamentação, locais para teleconsulta e energia solar.</p>
+<p>Com a maior parcela de recursos, a Atenção Especializada terá novas unidades hospitalares, ampliação nos atendimentos e tratamentos oncológicos, prioridade para saúde da mulher, com novas maternidades, e expansão da rede de atendimento para as pessoas com deficiência. Com investimentos de R$ 13,8 bilhões, o novo PAC possibilitará a universalização do SAMU, cobrindo cerca de 97% da população brasileira, ampliando o acesso a esse serviço que está estagnado desde 2017.</p>
+<p>Com prioridade para regiões de maior vulnerabilidade, estão previstas 850 novas ambulâncias e 10 centrais, combatendo os vazios assistenciais principalmente nas regiões Norte e Nordeste. O investimento será de R$ 400 milhões até 2026, beneficiando mais de 28 milhões de brasileiros.</p>
+<p>O novo PAC também possibilitará a ampliação da capacidade de atendimento à pessoa com deficiência, com a construção de 45 Centros Especializados em Reabilitação (CER) e 15 Oficinas Ortopédicas, com investimento de R$ 400 milhões. Para a seleção dos locais que receberão os serviços, serão priorizadas regiões com vazios assistenciais, onde a população não conta com nenhum serviço de reabilitação.</p>
+<p>O fortalecimento da rede para saúde mental, prioridade da atual gestão do Ministério da Saúde, também faz parte de um eixo estratégico do novo PAC. Com R$ 410 milhões previstos, cerca de 6,4 milhões de brasileiros terão acesso a esses cuidados com a construção de 200 novos Centros de Atenção Psicossocial (CAPS) em todo país.</p>
+<p>Para o enfrentamento de um dos desafios históricos do Brasil, estão previstos R$ 605 milhões até 2026 para a ampliação da cobertura da radioterapia no SUS, fundamental na assistência a pacientes com câncer. A meta é entregar 40 novos equipamentos e concluir a entrega de 42 que estão em andamento.</p>
+<p>Ainda na Atenção Especializada, está prevista a ampliação do acesso aos serviços ambulatoriais, com a construção de 90 policlínicas e investimento de R$ 1,7 bilhão. As regiões de maior vulnerabilidade do Brasil também poderão contar com 90 novos centros de parto normal e 60 novas maternidades, fortalecendo o cuidado de mãe e bebê e para combater um dos problemas de saúde pública de maior gravidade no país: a mortalidade materna.</p>
+<p class="callout">Com a previsão de 15 novas obras em hospitais em 12 estados brasileiros, o PAC prevê investimento de R$ 1,3 bilhão na estruturação da rede que também permitirá o aumento no número de leitos em todo país – obras estas oriundas de demandas dos governadores. A expansão da formação de médicos, especialistas e outros profissionais de saúde também faz parte da estratégia prevista, com investimento de R$ 1,3 bilhão nos Hospitais Universitários.</p>
+<p><span><strong>PREPARAÇÃO PARA EMERGÊNCIAS</strong> </span>-<span> </span>Uma das preocupações da atual gestão do Ministério da Saúde é a preparação para as novas emergências sanitárias. Além do fortalecimento do complexo industrial da saúde para produção de vacinas, fármacos e insumos (um dos cinco pilares), a pasta investirá R$ 272 milhões para expandir a capacidade do país em responder a situações como a pandemia de Covid-19.</p>
+<p>Até 2026, estão previstos investimentos em equipamentos para 47 Laboratórios de Saúde Pública. Essa ampliação impactará diretamente na quantidade de diagnósticos processados, aumentando em até 400% em todo Brasil. As regiões de difícil acesso e distantes dos grandes centros terão prioridade, com a estruturação de cinco Unidades Móveis de Resposta Rápida para realização de diagnósticos localmente.</p>
+<p>A criação do Centro de Inteligência Genômica (GICEN) da Rede Nacional de Sequenciamento Genético, com investimento de R$ 40 milhões, viabilizará o desenvolvimento de softwares de bioinformática para resolução de problemas biológicos, além de identificar variantes de patógenos circulantes, genes e o comportamento do agente. Fortalecer a Rede Nacional de Sequenciamento Genético, composta pelos 27 Laboratórios Centrais de Saúde Pública (LACEN), se mostrou fundamental no enfrentamento da pandemia, o que tornou o Brasil referência regional neste campo para a OMS.</p>
+<p>O novo PAC também prevê mais de R$ 1 bilhão de investimento na construção do 1º Laboratório de Nível de Segurança 4 (NB4) do Brasil. A construção será feita pelo Ministério da Saúde em conjunto com o Ministério da Ciência, Tecnologia e Inovação (MCTI), com recursos garantidos pelo FNDCT.</p>
+<p>Os investimentos do novo PAC também preveem um marco histórico para relembrar a tragédia causada pela Covid-19 no Brasil, com mais de 700 mil vidas interrompidas pela doença. Com investimento de R$ 15 milhões, o Centro Cultural do Ministério da Saúde no Rio de Janeiro (RJ) será restaurado e ganhará o Memorial da Pandemia, com previsão de inauguração em junho de 2025.</p>
+<p><span><strong>SUS DIGITAL</strong> </span>- O uso da tecnologia para ampliar o acesso da população a atendimento médico especializado e diagnóstico, principalmente nas regiões distantes dos grandes centros, é outra frente de investimento do novo PAC na Saúde. Serão R$ 150 milhões para compra de 3 mil equipamentos multimídia para Teleconsulta e para a instalação de 52 novos núcleos de Telessaúde no país. Com isso, a oferta deste serviço será cinco vezes maior, já que atualmente somente 13 núcleos estão em funcionamento no país após esvaziamento desta política nos últimos quatro anos.</p>
+<p>Por meio dos núcleos de Telessaúde, especialistas, como cardiologistas e oftalmologistas, fazem consultas online e análise de diagnósticos de médicos que atuam na Atenção Primária, mais próxima da população. A iniciativa permite reduzir as barreiras geográficas, diante da dificuldade de levar profissionais especializados às regiões remotas, e assegurar o acesso da população a este atendimento. O programa está presente em 1.400 municípios e é realizado com o apoio de universidades federais.</p>
+<p class="callout"><span><strong>MAIOR AUTONOMIA</strong> </span>-<span> </span>Com investimento robusto no Complexo Econômico-Industrial da Saúde, de R$ 8,9 bilhões, o Governo Federal quer ampliar a capacidade produtiva nacional. Embora represente cerca de 10% do PIB, o país importa grande parte dos medicamentos, equipamentos e outros insumos estratégicos da saúde. A maior autonomia do Brasil no setor com o desenvolvimento da indústria local reduz a vulnerabilidade do SUS e assegura o acesso universal à saúde, além da geração de emprego e renda.</p>
+<p class=" ">Serão R$ 6 bilhões para o fortalecimento da cadeia de produção de vacinas, medicamentos e equipamentos. E mais R$ 2 bilhões para construção e pré-operação das fábricas do campus Santa Cruz da Fiocruz, que será o maior centro de produção de produtos biológicos da América Latina. Com a evolução da indústria farmacêutica e das tecnologias empregadas na produção de medicamentos, o segmento de biológicos tende a crescer no mundo. Inclusive, a tecnologia foi usada no desenvolvimento da vacina contra a Covid-19.</p>
+<p>Também serão investidos R$ 895 milhões no parque fabril da Empresa Brasileira de Hemoderivados e Biotecnologia (Hemobrás) e na qualificação da hemorrede no país. A importação de medicamentos para atender aos pacientes com hemofilia e outras doenças relacionadas à coagulação sanguínea, cuja assistência é ofertada 100% pelo SUS, supera R$ 1,5 bilhão/ano. Desta forma, o pleno funcionamento da Hemobras é um passo fundamental para o Brasil reduzir a sua dependência.</p></div>
+            </div>
+          
+
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+      <dc:subject>Novo PAC</dc:subject>
+    
+      <dc:subject>Programa de Aceleração do Crescimento</dc:subject>
+    
+      <dc:subject>Saúde</dc:subject>
+    
+    <dc:date>2023-08-14T21:17:26Z</dc:date>
+    <dc:type>collective.nitf.content</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/marcha-das-margaridas-retorna-a-brasilia-com-expectativa-de-mais-de-100-mil-mulheres-de-todo-o-brasil">
+    <title>Marcha das Margaridas retorna a Brasília com expectativa de mais de 100 mil mulheres de todo o Brasil</title>
+    <link>https://www.gov.br/pt-br/noticias/marcha-das-margaridas-retorna-a-brasilia-com-expectativa-de-mais-de-100-mil-mulheres-de-todo-o-brasil</link>
+    <description>Sétima edição do evento, nesta quarta (16/8), percorre trajeto na capital rumo à Esplanada dos Ministérios. Presidente Lula participa do encerramento. Marcha é considerada a maior ação política de mulheres em toda a América Latina</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+   
+            
+
+            <div id="parent-fieldname-text" class="">
+              <div property="rnews:articleBody"><p>
+ A Marcha das Margaridas tem um significado especial para cada uma das mulheres que participam do tradicional evento, que, nesta quarta-feira (16/8), faz o trajeto de aproximadamente dez quilômetros do Parque da Cidade até o final da Esplanada dos Ministérios, em Brasília.
+</p>
+<p>
+ Realizada a cada quatro anos, a marcha representa um grito de resistência e da cotidiana luta em defesa dos direitos dos povos do campo. É um movimento para as mulheres trabalhadoras rurais, indígenas, quilombolas, ribeirinhas, sem-terra, extrativistas, LGBTQIA+ e moradoras de centros urbanos usarem o espaço público – no centro político brasileiro – para apresentar reivindicações vindas de todos os cantos e interiores do país.
+</p>
+<p>
+ <img alt="" class="image-inline captioned" src="https://www.gov.br/secom/pt-br/assuntos/noticias/2023/08/marcha-das-margaridas-retorna-a-brasilia-com-expectativa-de-mais-de-100-mil-mulheres-de-todo-o-brasil/cidaRodrigues.jpg" />
+</p>
+<p>
+ <span class="discreet">
+  Cida Rodrigues foi a Brasília com uma caravana de 42 mulheres do município de Urandi (BA) | Foto: Vinicius Neves/Divulgação
+ </span>
+</p>
+<p>
+ “Essa sétima marcha é importante para nós pelo fortalecimento da agricultura familiar, em defesa das mulheres, no combate contra a violência da mulher. São várias pautas que nós, aqui, vamos reivindicar. Pela segurança alimentar nutricional também. São várias pautas. Nós estamos com uma caravana com 42 mulheres aqui do município de Urandi, na Bahia”, disse a trabalhadora rural Cida Rodrigues. O presidente da República, Luiz Inácio Lula da Silva, participa do encerramento do ato, na Esplanada dos Ministérios, a partir das 10h.
+</p>
+<p class="">
+ Além das mais de 100 mil mulheres brasileiras do campo, da floresta, das águas e das cidades, participam representantes de 33 países. Neste ano, as atividades da 7ª Marcha das Margaridas ocorrem desde esta terça-feira (15/8), com painéis, discussões e eventos. Coordenado pela Confederação Nacional dos Trabalhadores na Agricultura (Contag), federações e sindicatos filiados e 16 organizações parceiras, o evento tem como lema ‘Pela Reconstrução do Brasil e pelo bem viver’.
+</p>
+<p class="">
+ <img alt="" class="image-inline captioned" src="https://www.gov.br/secom/pt-br/assuntos/noticias/2023/08/marcha-das-margaridas-retorna-a-brasilia-com-expectativa-de-mais-de-100-mil-mulheres-de-todo-o-brasil/SuzanadaSilvaPimentel.jpg" />
+</p>
+<p>
+ <span class="discreet">
+  A professora de sociologia Suzana da Silva Pimentel aguarda a participação do presidente Lula nesta quarta |
+  <span>
+   Foto: Vinicius Neves/Divulgação
+  </span>
+ </span>
+</p>
+<p>
+ A trabalhadora rural e professora de sociologia Suzana da Silva Pimentel veio de Monte Santo, no Território Sisal, na Bahia, para participar da marcha pela primeira vez. Ela compartilhou seu sentimento em participar do ato: “Só de sair lá do interior da Bahia e vir para essa aglomeração, no coletivo com outras mulheres de outras regiões, já mostra uma força muito grande. Demonstra o quanto a gente precisa se organizar e quem tem que se organizar e lutar somos nós. Nós, mulheres que estamos lá na Caatinga, lá no interior, temos que enfatizar as necessidades que temos, as mulheres catingueiras lá do Nordeste”.
+</p>
+<p>
+ Ela é uma das que aguarda o pronunciamento do presidente Lula durante a Marcha das Margaridas: “A gente está acreditando nesse novo governo. É a nossa cara, foi o nosso voto e é por isso que a gente acredita", contou a professora baiana.
+</p>
+<p>
+ A quebradeira de coco Raimunda Nonata Bezerra de Oliveira, conhecida como Mundinha, contou um pouco sobre sua rotina em Imperatriz, no Maranhão: “A luta no dia a dia é grande. Amanhece o dia, a gente já tem que estar pegando no batente, como é o ditado de lá. A gente trabalha na roça, a gente pesca, a gente quebra coco babaçu e é grande a luta, mas é gratificante”.
+</p>
+<p>
+ Ela frequenta a Marcha das Margaridas desde 2011 e acrescenta: “Para nós, é uma importância muito grande porque o nosso movimento se identifica com essa marcha, identifica nós, o movimento das quebradeiras de coco lá do Maranhão. Para nós é uma satisfação e é muito bom estar participando. É um prazer estar participando porque a gente reivindica os nossos direitos e os nossos deveres”.
+</p>
+<p>
+ <strong>
+  MARGARIDA ALVES
+ </strong>
+ – A Marcha das Margaridas é uma homenagem a Margarida Maria Alves, uma trabalhadora rural e sindicalista paraibana que passou sua vida lutando pelos direitos das mulheres trabalhadoras rurais. Ela foi assassinada em 12 de agosto de 1983 e se tornou um símbolo em defesa dos direitos da categoria – e um marco na denúncia das violações sistemáticas dos direitos fundamentais. Foi entendido, em âmbito internacional, que o Estado brasileiro foi responsável pela violação dos direitos à vida, integridade pessoal, proteção e garantias jurídicas de Margarida Alves.
+</p>
+<p>
+ <img alt="" class="image-inline captioned" src="https://www.gov.br/secom/pt-br/assuntos/noticias/2023/08/marcha-das-margaridas-retorna-a-brasilia-com-expectativa-de-mais-de-100-mil-mulheres-de-todo-o-brasil/DenniseJunurio.jpg" />
+</p>
+<p>
+ <span class="discreet">
+  A advogada Dennise Januário, conterrânea de Margarida Maria Alves, participa pela primeira vez da Marcha das Margaridas |
+  <span>
+   Foto: Vinicius Neves/Divulgação
+  </span>
+ </span>
+</p>
+<p>
+ "É de suma importância a gente, principalmente nós, mulheres representantes que somos da terra de Margarida – nós somos de Alagoa Grande, Paraíba – onde ela nasceu, militou e morreu, brutalmente assassinada. Então a gente tem essa responsabilidade de levar a luta dela aos quatro cantos do Brasil e do mundo, para que mais e mais mulheres se envolvam e que a gente possa, com a nossa voz, reivindicar por mais políticas públicas ao qual ela já reivindicava naquele tempo", afirmou a advogada Dennise Januário, que é filha de agricultor assentado e conterrânea de Margarida Maria Alves.
+</p>
+<p>
+ Enquanto Dennise se preparava para contar sobre sua história e a importância de estar participando, pela primeira vez, da Marcha das Margaridas, uma colega de caravana, também de Alagoa Grande, fez questão de reforçar para todos ouvirem: “Não esquece de dizer que você é da terra de Margarida”. A maioria delas vestia camisetas estampadas com o rosto da paraibana e os dizeres “Margarida presente!”.
+</p>
+<p>
+ <strong>
+  PAUTAS
+ </strong>
+ – Uma das missões da Marcha das Margaridas é apresentar pautas ao poder público, na região central da capital federal, onde se concentram as discussões políticas sobre os desafios da população brasileira.
+</p>
+<p>
+ Neste ano, a Marcha das Margaridas vai às ruas com 12 eixos políticos:
+</p>
+<ul>
+ <li>
+  Democracia participativa e soberania popular
+ </li>
+ <li>
+  Poder e participação política das mulheres
+ </li>
+ <li>
+  Autodeterminação dos povos, com soberania alimentar, hídrica e energética
+ </li>
+ <li>
+  Democratização do acesso à terra e garantia dos direitos territoriais e dos maretórios
+ </li>
+ <li>
+  Vida saudável com agroecologia e segurança alimentar e nutricional
+ </li>
+ <li>
+  Direito de acesso e uso da biodiversidade, defesa dos bens comuns e proteção da natureza com justiça ambiental e climática
+ </li>
+ <li>
+  Autonomia econômica, inclusão produtiva, trabalho e renda
+ </li>
+ <li>
+  Educação pública não sexista e antirracista e direito à educação do e no campo
+ </li>
+ <li>
+  Saúde, previdência e assistência social pública, universal e solidária
+ </li>
+ <li>
+  Universalização do acesso à internet e inclusão digital
+ </li>
+ <li>
+  Vida livre de todas as formas de violência, sem racismo e sem sexismo
+ </li>
+ <li>
+  Autonomia e liberdade das mulheres sobre o seu corpo e a sua sexualidade
+ </li>
+</ul>
+<p>
+ A coordenadora-geral da Marcha das Margaridas, a piauiense Mazé Morais falou sobre o evento em uma sessão no Senado Federal. “Não seremos 100 mil, 200 mil mulheres, mas milhões, espalhadas por todo o Brasil. Estamos aqui apenas uma parte da imensidão que existe fora daqui. Apresentando uma agenda importante para reconstruir o Brasil e alcançar o bem viver. Isso significa que queremos estabelecer uma relação de não exploração com a natureza. Usufruir do direito de viver em nossas terras e territórios e propor novas formas de produção de alimentos baseado na agroecologia”, afirmou.
+</p>
+<p>
+ “Queremos participar plenamente da política e dos espaços de decisão. E construir uma convivência sem desigualdade, sem pobreza, sem fome, sem racismo e sem violência. E, por fim, cultivar relações em que o cuidado seja resguardado por todos e por todas. Seguiremos em marcha pela reconstrução do Brasil e pelo bem viver", concluiu Mazé.
+</p></div>
+            </div>
+          
+
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+      <dc:subject>Marcha das Margaridas</dc:subject>
+    
+      <dc:subject>Mulheres do campo</dc:subject>
+    
+      <dc:subject>Esplanada dos Ministérios</dc:subject>
+    
+    <dc:date>2023-08-15T21:13:10Z</dc:date>
+    <dc:type>collective.nitf.content</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/mais-noticias">
+    <title>Últimas Notícias</title>
+    <link>https://www.gov.br/pt-br/noticias/mais-noticias</link>
+    <description>Últimas notícias relacionadas à ação do Governo Federal do Brasil</description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2013-06-04T15:44:00Z</dc:date>
+    <dc:type>Collection</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/comunicacao">
+    <title>Comunicação</title>
+    <link>https://www.gov.br/pt-br/noticias/comunicacao</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2023-01-02T16:50:00Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/ultimas-noticias">
+    <title>Ultimas Noticias</title>
+    <link>https://www.gov.br/pt-br/noticias/ultimas-noticias</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2025-02-27T19:45:56Z</dc:date>
+    <dc:type>Link</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/agricultura-e-pecuaria">
+    <title>Agricultura e Pecuária</title>
+    <link>https://www.gov.br/pt-br/noticias/agricultura-e-pecuaria</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2019-08-21T23:35:15Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/termos-de-uso-de-redes-sociais">
+    <title>Termos de uso de redes sociais</title>
+    <link>https://www.gov.br/pt-br/noticias/termos-de-uso-de-redes-sociais</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+   
+            
+
+            <div id="parent-fieldname-text" class="">
+              <div property="rnews:articleBody"><div id="content-core">
+<div id="parent-fieldname-text">
+<p align="center" class=" " style="text-align: justify; ">Esta página foi feita para você, cidadão, apenas para lembrá-lo de que seus comentários e interações serão sempre bem-vindos, porém estão sujeitosà nossa moderação para que possamos garantir um ambiente de convivência saudável, digno e respeitoso para todos.</p>
+<p class=" " style="text-align: justify; "><span>Em uma sociedade democrática, são essenciais o diálogo e o exercício da cidadania. As mídias sociais possibilitam uma maior participação nos debates públicos e, consequentemente, uma relação mais estreita entre governo e sociedade.</span></p>
+<p class=" " style="text-align: justify; ">A linha do tempo de nosso perfil é um espaço de diálogo, destinado a públicos de todas as faixas etárias e de todos os segmentos da sociedade. E nosso objetivo é utilizar esse espaço para divulgar conteúdos de interesse do cidadão, além de orientações para que todos possam usufruir dos serviços públicos prestados à sociedade.</p>
+<p class=" " style="text-align: justify; "><span>Responsabilidade, respeito aos direitos autorais e à privacidade devem guiar o comportamento dos usuários das mídias sociais. Princípios gerais de conduta também devem ser seguidos, tais como: boa-fé, honestidade, cortesia, transparência, moralidade e legalidade.</span></p>
+<p class=" " style="text-align: justify; "><span>Assim, comentários inadequados poderão ser excluídos, portanto, fique atento às regras de participação, abaixo descritas:</span></p>
+<ul style="text-align: justify; ">
+<li>Expresse-se respeitosamente, lembre-se de que todos têm o direto de emitir sua própria opinião e seu ponto de vista, participe no sentido de manter um clima cordial de diálogo e na promoção de um debate enriquecedor para todos. </li>
+</ul>
+<ul style="text-align: justify; ">
+<li>Não poste conteúdos repetitivos ou fora do contexto e evite distorcer os assuntos tratados. Todos os comentários devem estar relacionados ao tema apresentado ou ao objeto da discussão, sendo as críticas construtivas. </li>
+</ul>
+<ul style="text-align: justify; ">
+<li>Não repasse, em nome próprio ou de terceiros, <i>spams, </i><span>correntes ou </span><i>links</i><span> suspeitos, muito menos os que contenham conteúdos fraudulentos ou danosos, que possam causar algum prejuízo aos demais usuários.</span> </li>
+</ul>
+<ul style="text-align: justify; ">
+<li>Não participe com mensagens, comentários ou notas escritas exclusivamente com letras maiúsculas, esse formato pode ser percebido pelos demais usuários como agressivo, ou quase um grito. </li>
+</ul>
+<ul style="text-align: justify; ">
+<li>Não publique conteúdos propagandísticos, comerciais ou publicitários, de interesse da iniciativa privada. Priorize conteúdos que sejam importantes para todos, de utilidade pública ou vinculadas à temática tratada. </li>
+</ul>
+<ul style="text-align: justify; ">
+<li>Não divulgue informações confidenciais ou pessoais, tais como endereços, nomes de familiares, números de telefones, de documentos de identificação, de cadastro em programas sociais, de valores recebidos ou qualquer outro dado que possa gerar alguma exposição desnecessária ou situação de risco, para você ou para terceiros. </li>
+</ul>
+<ul style="text-align: justify; ">
+<li>Não publique mensagens com conteúdos abusivos, ilegais, nocivos, ameaçadores, jocosos, profanos, difamatórios, discriminatórios, ofensivos ou obscenos, nem que caracterizem calúnia, difamação, assédio, ou discriminação de qualquer espécie. </li>
+</ul>
+<ul style="text-align: justify; ">
+<li>Certifique-se da veracidade dos fatos antes de divulgá-los para evitar disseminação das chamadas fake news, especialmente quanto àquelas notícias falsas que contenham temas que afetem a reputação de terceiros. </li>
+</ul>
+<ul style="text-align: justify; ">
+<li>Não utilize linguagem chula, de baixo calão, depreciativa ou que contenha tom inflamatório, com insultos ou incitação ao ódio e à violência. Contribua para um diálogo respeitoso ou uma discussão elevada e proveitosa. </li>
+</ul>
+<ul style="text-align: justify; ">
+<li>Não publique conteúdos pejorativos que façam uso irresponsável da imagem de terceiros, de servidores e autoridades públicas ou de órgãos e entidades governamentais. Todos ganham quando aprimoramos os serviços prestados ao cidadão. </li>
+</ul>
+<ul style="text-align: justify; ">
+<li>Não utilize o presente espaço para realizar propaganda eleitoral ou campanha político-partidária, para emitir opiniões favoráveis, ou contrárias, a candidatos, partidos políticos, autoridades públicas ou que sejam destaque nacional, para promoção de nomes e números de candidatos, siglas e nomes de partidos, slogans de campanhas partidárias ou mesmo conteúdos que contenham expressões tais como eleições, segundo turno ou outras nomenclaturas da espécie. Este não é o local apropriado para esse tipo de assunto.</li>
+</ul>
+<p style="text-align: justify; "> </p>
+<h2><span>Da violação e reincidência:</span></h2>
+<p style="text-align: justify; "><span>Diante da violação a esses termos, as mensagens inadequadas poderão ser removidas e o usuário advertido, ou mesmo bloqueado, de forma temporária ou definitiva, independendo de justificativa, consulta ou alerta prévio e sem prejuízo de outras medidas.</span></p>
+<p style="text-align: justify; "><span>Da responsabilização quando caracterizado o desrespeito às regras estabelecidas nestes termos de uso:</span></p>
+<p style="text-align: justify; "><span>A violação das regras aqui estabelecidas poderá sujeitar aos infratores à responsabilização civil, administrativa ou eleitoral, se for o caso, e ao pagamento de indenização por dano material, moral ou à imagem.</span></p>
+<p style="text-align: justify; "><span>Da tipificação penal de possíveis violações a estes termos de uso:</span></p>
+<p style="text-align: justify; "><span>As infrações aos termos de uso aqui estabelecidos poderão ser enquadradas como calúnia, difamação e injúria, além de violação de direito autoral, tipificados nos artigos 138, 139, 140 e 184 do Código Penal Brasileiro, podendo ser punidas com detenção e multa.</span></p>
+<h2><span>Concordância aos termos de uso:</span></h2>
+<p style="text-align: justify; "><span>Ao utilizar este espaço, você estará de acordo com as regras de uso e de privacidade aqui descritas.</span></p>
+</div>
+</div></div>
+            </div>
+          
+
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2022-06-13T21:13:32Z</dc:date>
+    <dc:type>collective.nitf.content</dc:type>
+  </item>
+
+  <item rdf:about="https://www.gov.br/pt-br/noticias/transito-e-transportes">
+    <title>Infraestrutura</title>
+    <link>https://www.gov.br/pt-br/noticias/transito-e-transportes</link>
+    <description></description>
+    <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">
+        <![CDATA[
+        
+          
+        ]]>
+    </content:encoded>
+    <dc:publisher>No publisher</dc:publisher>
+    
+    <dc:rights></dc:rights>
+    
+    <dc:date>2019-08-21T23:44:01Z</dc:date>
+    <dc:type>Folder</dc:type>
+  </item>
+
+
+
+</rdf:RDF>

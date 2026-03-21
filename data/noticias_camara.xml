@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Câmara notícias - Câmara dos Deputados</title>
+        <link>https://www2.camara.leg.br/camaranoticias</link>
+        <description>Câmara Notícias </description>
+        <lastBuildDate>Sat, 21 Mar 2026 17:51:17 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>Câmara notícias</generator>
+        <copyright>Copyright(C) Câmara dos Deputados</copyright>
+    </channel>
+</rss>

@@ -1,0 +1,183 @@
+<!--
+  PoliticaBR - Pagina Principal
+
+  Interface web para consulta de dados abertos do governo brasileiro.
+  Contem 5 abas: Busca Geral, Deputados, Senadores, TSE e Noticias.
+  A busca funciona em tempo real (debounce) com texto parcial.
+
+  @author di0nar4p
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politica BR - Dados Abertos do Governo</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-content">
+      <h1>Politica<span>BR</span></h1>
+      <nav class="nav">
+        <button class="nav-btn active" data-section="busca">Busca Geral</button>
+        <button class="nav-btn" data-section="deputados">Deputados</button>
+        <button class="nav-btn" data-section="senadores">Senadores</button>
+        <button class="nav-btn" data-section="tse">TSE - Eleicoes</button>
+        <button class="nav-btn" data-section="noticias">Noticias</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- BUSCA GERAL -->
+    <section id="sec-busca" class="section active">
+      <div class="search-section">
+        <div class="search-row">
+          <div class="search-group">
+            <label>Buscar por nome (parcial)</label>
+            <input type="text" id="busca-termo" class="search-input" placeholder="Ex: bolsonaro, lula, tabata..." autofocus>
+          </div>
+          <button class="btn btn-accent" onclick="buscaGeral()">Buscar</button>
+        </div>
+        <p style="font-size:0.8rem;color:var(--text-light);margin-top:0.5rem;">Busca em deputados e senadores por qualquer parte do nome, ignorando acentos.</p>
+      </div>
+
+      <div id="busca-stats" class="stats-bar"></div>
+      <div id="busca-results" class="cards-grid"></div>
+    </section>
+
+    <!-- DEPUTADOS -->
+    <section id="sec-deputados" class="section">
+      <div class="search-section">
+        <div class="search-row">
+          <div class="search-group">
+            <label>Nome do Deputado</label>
+            <input type="text" id="dep-nome" class="search-input" placeholder="Buscar por nome...">
+          </div>
+          <div class="search-group" style="flex:0.5; min-width:120px;">
+            <label>Partido</label>
+            <select id="dep-partido" class="search-select">
+              <option value="">Todos</option>
+            </select>
+          </div>
+          <div class="search-group" style="flex:0.5; min-width:120px;">
+            <label>Estado</label>
+            <select id="dep-uf" class="search-select">
+              <option value="">Todos</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" onclick="buscarDeputados()">Buscar</button>
+        </div>
+      </div>
+
+      <div id="dep-stats" class="stats-bar"></div>
+      <div id="dep-results" class="cards-grid"></div>
+      <div id="dep-pagination" class="pagination"></div>
+    </section>
+
+    <!-- SENADORES -->
+    <section id="sec-senadores" class="section">
+      <div class="search-section">
+        <div class="search-row">
+          <div class="search-group">
+            <label>Nome do Senador</label>
+            <input type="text" id="sen-nome" class="search-input" placeholder="Buscar por nome...">
+          </div>
+          <div class="search-group" style="flex:0.5; min-width:120px;">
+            <label>Partido</label>
+            <select id="sen-partido" class="search-select">
+              <option value="">Todos</option>
+            </select>
+          </div>
+          <div class="search-group" style="flex:0.5; min-width:120px;">
+            <label>Estado</label>
+            <select id="sen-uf" class="search-select">
+              <option value="">Todos</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" onclick="buscarSenadores()">Buscar</button>
+        </div>
+      </div>
+
+      <div id="sen-stats" class="stats-bar"></div>
+      <div id="sen-results" class="cards-grid"></div>
+    </section>
+
+    <!-- TSE -->
+    <section id="sec-tse" class="section">
+      <div class="search-section">
+        <div class="search-row">
+          <div class="search-group" style="flex:0.5; min-width:150px;">
+            <label>Ano da Eleicao</label>
+            <select id="tse-ano" class="search-select">
+              <option value="2024">2024</option>
+              <option value="2022">2022</option>
+              <option value="2020">2020</option>
+              <option value="2018">2018</option>
+              <option value="2016">2016</option>
+              <option value="2014">2014</option>
+            </select>
+          </div>
+          <div class="search-group" style="flex:0.5; min-width:150px;">
+            <label>Tipo de Dado</label>
+            <select id="tse-tipo" class="search-select">
+              <option value="candidatos">Candidatos</option>
+              <option value="prestacao-contas">Prestacao de Contas</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" onclick="buscarTSE()">Buscar</button>
+        </div>
+      </div>
+
+      <div id="tse-results"></div>
+    </section>
+
+    <!-- NOTICIAS -->
+    <section id="sec-noticias" class="section">
+      <div class="search-section">
+        <div class="search-row">
+          <div class="search-group">
+            <label>Buscar nas noticias</label>
+            <input type="text" id="news-busca" class="search-input" placeholder="Palavra-chave (ex: candidato, eleicao, STF)...">
+          </div>
+          <div class="search-group" style="flex:0.4; min-width:140px;">
+            <label>Categoria</label>
+            <select id="news-categoria" class="search-select" onchange="atualizarFontes()">
+              <option value="">Todas</option>
+              <option value="governo">Governo / Institucional</option>
+              <option value="portal">Portais de Noticias</option>
+            </select>
+          </div>
+          <div class="search-group" style="flex:0.5; min-width:180px;">
+            <label>Fonte</label>
+            <select id="news-fonte" class="search-select">
+              <option value="">Todas as fontes</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" onclick="buscarNoticias()">Buscar</button>
+        </div>
+      </div>
+
+      <div id="news-stats" class="stats-bar"></div>
+      <div id="news-results" class="cards-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- Modal de Detalhes -->
+  <div id="modal-overlay" class="modal-overlay" onclick="fecharModal(event)">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Detalhes</h2>
+        <button class="modal-close" onclick="fecharModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

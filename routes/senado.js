@@ -1,0 +1,196 @@
+/**
+ * PoliticaBR - Modulo do Senado Federal
+ *
+ * Rota que consome a API de Dados Abertos do Senado Federal
+ * (https://legis.senado.leg.br/dadosabertos). Oferece endpoints para
+ * listar senadores em exercicio, consultar detalhes individuais,
+ * votacoes e autorias. Busca por nome utiliza dados locais para
+ * permitir busca parcial com normalizacao de acentos.
+ *
+ * @author di0nar4p
+ */
+
+const express = require('express');
+const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
+const router = express.Router();
+
+// URL base da API de Dados Abertos do Senado
+const BASE_URL = 'https://legis.senado.leg.br/dadosabertos';
+
+// Diretorio dos dados locais de fallback
+const DATA_DIR = path.join(__dirname, '..', 'data');
+
+// Cliente HTTP configurado para a API do Senado
+const api = axios.create({
+  baseURL: BASE_URL,
+  timeout: 10000,
+  headers: { 'Accept': 'application/json' }
+});
+
+/**
+ * Carrega um arquivo JSON do diretorio de dados locais.
+ */
+function loadLocal(filename) {
+  try {
+    const filepath = path.join(DATA_DIR, filename);
+    const raw = fs.readFileSync(filepath, 'utf-8');
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Extrai a lista de senadores da estrutura aninhada da API do Senado.
+ * A API retorna os dados em: ListaParlamentarEmExercicio.Parlamentares.Parlamentar
+ */
+function extractSenadores(data) {
+  let senadores = [];
+  if (data?.ListaParlamentarEmExercicio?.Parlamentares?.Parlamentar) {
+    senadores = data.ListaParlamentarEmExercicio.Parlamentares.Parlamentar;
+    if (!Array.isArray(senadores)) senadores = [senadores];
+  }
+  return senadores;
+}
+
+/**
+ * Remove acentos e converte para minusculo para busca parcial.
+ */
+function normalize(str) {
+  return (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+/**
+ * Filtra senadores por nome (parcial), partido (exato) e UF (exato).
+ * A busca por nome compara tanto NomeParlamentar quanto NomeCompletoParlamentar.
+ */
+function filterSenadores(senadores, { nome, siglaPartido, siglaUf }) {
+  if (nome) {
+    const termoNorm = normalize(nome);
+    senadores = senadores.filter(s => {
+      const np = normalize(s.IdentificacaoParlamentar?.NomeParlamentar);
+      const nc = normalize(s.IdentificacaoParlamentar?.NomeCompletoParlamentar);
+      return np.includes(termoNorm) || nc.includes(termoNorm);
+    });
+  }
+  if (siglaPartido) {
+    senadores = senadores.filter(s =>
+      (s.IdentificacaoParlamentar?.SiglaPartidoParlamentar || '').toUpperCase() === siglaPartido.toUpperCase()
+    );
+  }
+  if (siglaUf) {
+    senadores = senadores.filter(s =>
+      (s.IdentificacaoParlamentar?.UfParlamentar || '').toUpperCase() === siglaUf.toUpperCase()
+    );
+  }
+  return senadores;
+}
+
+/**
+ * GET /senadores
+ * Lista senadores em exercicio com filtros opcionais.
+ * Busca por nome usa dados locais para busca parcial com normalize.
+ * Sem nome, consulta a API e faz fallback local se falhar.
+ */
+router.get('/senadores', async (req, res) => {
+  const { nome, siglaPartido, siglaUf } = req.query;
+
+  // Busca por nome usa dados locais (busca parcial com normalize)
+  if (nome) {
+    const local = loadLocal('senadores.json');
+    if (!local) {
+      return res.status(500).json({ erro: 'Dados locais nao disponiveis' });
+    }
+    let senadores = extractSenadores(local);
+    senadores = filterSenadores(senadores, { nome, siglaPartido, siglaUf });
+    return res.json({ dados: senadores, total: senadores.length });
+  }
+
+  // Sem nome, consulta a API normalmente
+  try {
+    const response = await api.get('/senador/lista/atual');
+    let senadores = extractSenadores(response.data);
+    senadores = filterSenadores(senadores, { siglaPartido, siglaUf });
+    return res.json({ dados: senadores, total: senadores.length });
+  } catch (error) {
+    console.log('[senado/senadores] API falhou, usando dados locais:', error.message);
+    const local = loadLocal('senadores.json');
+    if (!local) {
+      return res.status(500).json({ erro: 'Erro ao buscar senadores e sem dados locais' });
+    }
+    let senadores = extractSenadores(local);
+    senadores = filterSenadores(senadores, { siglaPartido, siglaUf });
+    return res.json({ dados: senadores, total: senadores.length });
+  }
+});
+
+/**
+ * GET /senadores/:codigo
+ * Retorna detalhes de um senador pelo seu codigo parlamentar.
+ * Fallback local monta uma resposta compativel com o formato da API.
+ */
+router.get('/senadores/:codigo', async (req, res) => {
+  try {
+    const response = await api.get(`/senador/${encodeURIComponent(req.params.codigo)}`);
+    return res.json(response.data);
+  } catch (error) {
+    console.log('[senado/senador] API falhou, usando dados locais:', error.message);
+    const local = loadLocal('senadores.json');
+    if (!local) {
+      return res.status(500).json({ erro: 'Erro ao buscar senador e sem dados locais' });
+    }
+
+    const senadores = extractSenadores(local);
+    const sen = senadores.find(s =>
+      String(s.IdentificacaoParlamentar?.CodigoParlamentar) === String(req.params.codigo)
+    );
+
+    if (!sen) return res.status(404).json({ erro: 'Senador nao encontrado' });
+
+    // Monta resposta no formato esperado pelo frontend
+    return res.json({
+      DetalheParlamentar: {
+        Parlamentar: {
+          IdentificacaoParlamentar: sen.IdentificacaoParlamentar,
+          DadosBasicosParlamentar: {},
+          Mandatos: sen.Mandatos || {}
+        }
+      }
+    });
+  }
+});
+
+/**
+ * GET /senadores/:codigo/votacoes
+ * Retorna historico de votacoes de um senador, filtravel por ano.
+ */
+router.get('/senadores/:codigo/votacoes', async (req, res) => {
+  try {
+    const { ano } = req.query;
+    let url = `/senador/${encodeURIComponent(req.params.codigo)}/votacoes`;
+    if (ano) url += `?ano=${encodeURIComponent(ano)}`;
+    const response = await api.get(url);
+    return res.json(response.data);
+  } catch (error) {
+    console.log('[senado/votacoes] API falhou:', error.message);
+    return res.json({ dados: [] });
+  }
+});
+
+/**
+ * GET /senadores/:codigo/autorias
+ * Retorna projetos de autoria de um senador.
+ */
+router.get('/senadores/:codigo/autorias', async (req, res) => {
+  try {
+    const response = await api.get(`/senador/${encodeURIComponent(req.params.codigo)}/autorias`);
+    return res.json(response.data);
+  } catch (error) {
+    console.log('[senado/autorias] API falhou:', error.message);
+    return res.json({ dados: [] });
+  }
+});
+
+module.exports = router;

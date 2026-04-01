@@ -234,7 +234,7 @@ body {
   background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  overflow: hidden;
+  overflow: visible;
   transition: box-shadow 0.2s, transform 0.2s;
   cursor: pointer;
 }

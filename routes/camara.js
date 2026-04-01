@@ -158,7 +158,16 @@ router.get('/deputados', async (req, res) => {
 router.get('/deputados/:id', async (req, res) => {
   try {
     const response = await api.get(`/deputados/${encodeURIComponent(req.params.id)}`);
-    return res.json(response.data);
+    const data = response.data;
+    // A API de detalhes nao retorna email; complementa com dados da listagem
+    if (data.dados && !data.dados.ultimoStatus?.email) {
+      const local = loadLocal('deputados.json');
+      const dep = local?.dados?.find(d => String(d.id) === String(req.params.id));
+      if (dep?.email && data.dados.ultimoStatus) {
+        data.dados.ultimoStatus.email = dep.email;
+      }
+    }
+    return res.json(data);
   } catch (error) {
     console.log('[camara/deputado] API falhou, usando dados locais:', error.message);
     const local = loadLocal('deputados.json');

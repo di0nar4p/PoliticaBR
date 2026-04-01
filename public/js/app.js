@@ -16,6 +16,9 @@ const state = {
   depTotal: 0,
   partidos: [],
   buscaController: null,
+  depController: null,
+  senController: null,
+  newsController: null,
 };
 
 const UFS = [
@@ -142,6 +145,9 @@ async function buscarDeputados(pagina = 1) {
   state.depPagina = pagina;
   loading('dep-results');
 
+  if (state.depController) state.depController.abort();
+  state.depController = new AbortController();
+
   const nome = document.getElementById('dep-nome').value;
   const partido = document.getElementById('dep-partido').value;
   const uf = document.getElementById('dep-uf').value;
@@ -152,7 +158,9 @@ async function buscarDeputados(pagina = 1) {
   if (uf) params.set('siglaUf', uf);
 
   try {
-    const res = await fetch(`/api/camara/deputados?${params}`);
+    const res = await fetch(`/api/camara/deputados?${params}`, {
+      signal: state.depController.signal
+    });
     const data = await res.json();
     const deputados = data.dados || [];
 
@@ -214,6 +222,7 @@ async function buscarDeputados(pagina = 1) {
       ${hasNext ? `<button class="btn btn-primary" onclick="buscarDeputados(${pagina + 1})">Proxima</button>` : ''}
     `;
   } catch (e) {
+    if (e.name === 'AbortError') return;
     emptyState('dep-results', 'Erro ao buscar deputados. Tente novamente.');
     console.error(e);
   }
@@ -336,6 +345,9 @@ async function verDeputado(id) {
 async function buscarSenadores() {
   loading('sen-results');
 
+  if (state.senController) state.senController.abort();
+  state.senController = new AbortController();
+
   const nome = document.getElementById('sen-nome').value;
   const partido = document.getElementById('sen-partido').value;
   const uf = document.getElementById('sen-uf').value;
@@ -346,7 +358,9 @@ async function buscarSenadores() {
   if (uf) params.set('siglaUf', uf);
 
   try {
-    const res = await fetch(`/api/senado/senadores?${params}`);
+    const res = await fetch(`/api/senado/senadores?${params}`, {
+      signal: state.senController.signal
+    });
     const data = await res.json();
     const senadores = data.dados || [];
 
@@ -401,6 +415,7 @@ async function buscarSenadores() {
       `;
     }).join('');
   } catch (e) {
+    if (e.name === 'AbortError') return;
     emptyState('sen-results', 'Erro ao buscar senadores. Tente novamente.');
     console.error(e);
   }
@@ -571,6 +586,9 @@ async function buscarNoticias() {
   loading('news-results');
   document.getElementById('news-stats').innerHTML = '';
 
+  if (state.newsController) state.newsController.abort();
+  state.newsController = new AbortController();
+
   const busca = document.getElementById('news-busca').value;
   const fonte = document.getElementById('news-fonte').value;
   const categoria = document.getElementById('news-categoria').value;
@@ -581,7 +599,9 @@ async function buscarNoticias() {
   else if (categoria) params.set('categoria', categoria);
 
   try {
-    const res = await fetch(`/api/noticias?${params}`);
+    const res = await fetch(`/api/noticias?${params}`, {
+      signal: state.newsController.signal
+    });
     const data = await res.json();
     const noticias = data.dados || [];
 
@@ -617,6 +637,7 @@ async function buscarNoticias() {
       </div>
     `).join('');
   } catch (e) {
+    if (e.name === 'AbortError') return;
     emptyState('news-results', 'Erro ao buscar noticias. Tente novamente.');
     console.error(e);
   }

@@ -2,48 +2,40 @@
   "_meta": {
     "descricao": "Situacao judicial de parlamentares baseada em dados publicos",
     "ultima_atualizacao": "2026-04-01",
-    "fontes": "STF, STJ, TRF, PF, TSE, Diario da Justica"
+    "fontes": "STF, PF, TRE, TJDFT, imprensa publica"
   },
   "deputados": {
     "204456": {
-      "status": "condenado",
-      "resumo": "Condenado pelo TRE-RJ por captacao ilicita de sufragio nas eleicoes de 2016",
-      "detalhes": "Gutemberg Reis foi condenado por abuso de poder economico e captacao ilicita de sufragio quando prefeito de Duque de Caxias. Teve mandato de prefeito cassado pelo TRE-RJ.",
-      "fonte": "TRE-RJ - Acao de Investigacao Judicial Eleitoral",
-      "url": "https://www.tre-rj.jus.br",
+      "status": "investigado",
+      "resumo": "Indiciado pela PF na Operacao Venire por fraude em cartao de vacinacao",
+      "detalhes": "Gutemberg Reis foi indiciado pela Policia Federal na Operacao Venire (maio/2023) por suposta fraude no cartao de vacinacao contra Covid-19, no mesmo esquema que envolve o ex-presidente Bolsonaro. Segundo a PF, o deputado teria atuado como intermediario da fraude no sistema do SUS em Duque de Caxias.",
+      "fonte": "PF - Operacao Venire (maio/2023)",
+      "url": "https://www.cnnbrasil.com.br/politica/saiba-quem-e-gutemberg-reis-deputado-do-mdb-alvo-da-operacao-venire/",
       "data_atualizacao": "2026-04-01"
     },
     "160642": {
-      "status": "investigado",
-      "resumo": "Investigado no STF por peculato e organizacao criminosa",
-      "detalhes": "Pastor Eurico e investigado no Inquerito 4922 do STF por suposto envolvimento em esquema de desvio de emendas parlamentares.",
-      "fonte": "STF - Inquerito 4922",
-      "url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6299531",
+      "status": "condenado",
+      "resumo": "Condenado pela Justica do DF a indenizar deputada por transfobia",
+      "detalhes": "Pastor Eurico foi condenado pela Justica do Distrito Federal a pagar R$ 15 mil a deputada Erika Hilton (PSOL-SP) por declaracoes transfobicas durante evento na Camara em abril de 2024, quando a chamou de 'ex-cidadao'.",
+      "fonte": "TJDFT - Condenacao por danos morais (2024)",
+      "url": "https://www.cnnbrasil.com.br/politica/pastor-eurico-e-condenado-a-pagar-r-15-mil-erika-hilton-apos-chama-la-de-ex-cidadao/",
       "data_atualizacao": "2026-04-01"
     }
   },
   "senadores": {
     "470": {
       "status": "investigado",
-      "resumo": "Investigado por desvio de recursos publicos de saude",
-      "detalhes": "Chico Rodrigues foi flagrado pela PF com dinheiro na cueca durante operacao de busca e apreensao em outubro de 2020, em investigacao sobre desvio de recursos federais destinados ao combate da pandemia em Roraima.",
-      "fonte": "PF/STF - Operacao de busca e apreensao em outubro/2020",
-      "url": "https://portal.stf.jus.br",
-      "data_atualizacao": "2026-04-01"
-    },
-    "3830": {
-      "status": "investigado",
-      "resumo": "Investigado no STF por corrupcao passiva e lavagem de dinheiro",
-      "detalhes": "Davi Alcolumbre e investigado em inquerito no STF por suposto recebimento de propina de empresas de mineracao quando senador pelo Amapa. A PGR pediu abertura de acao penal.",
-      "fonte": "STF/PGR - Inquerito por corrupcao passiva",
-      "url": "https://portal.stf.jus.br",
+      "resumo": "Afastado pelo STF apos ser flagrado pela PF com dinheiro na cueca",
+      "detalhes": "Chico Rodrigues foi alvo de operacao de busca e apreensao da PF em outubro de 2020, quando escondeu R$ 30 mil nas roupas intimas. O ministro Barroso determinou seu afastamento por 90 dias (Pet 9218). E investigado por fraude em licitacao, peculato e organizacao criminosa voltada ao desvio de recursos federais de saude em Roraima.",
+      "fonte": "STF - Peticao 9218 (Min. Barroso)",
+      "url": "https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=453406&ori=1",
       "data_atualizacao": "2026-04-01"
     },
     "70": {
       "status": "investigado",
       "resumo": "Reu em acao penal no STF por lavagem de dinheiro (Lava Jato)",
       "detalhes": "Renan Calheiros e reu em acao penal no STF decorrente da Operacao Lava Jato, acusado de lavagem de dinheiro relacionada a propinas da Odebrecht.",
-      "fonte": "STF - Acao Penal 1028 (desdobramento Lava Jato)",
+      "fonte": "STF - Acao Penal 1028",
       "url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=5148856",
       "data_atualizacao": "2026-04-01"
     }

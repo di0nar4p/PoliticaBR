@@ -24,6 +24,7 @@ const senadoRoutes = require('./routes/senado');      // API Senado Federal
 const tseRoutes = require('./routes/tse');            // API TSE (dados eleitorais)
 const noticiasRoutes = require('./routes/noticias');  // Agregador de noticias via RSS
 const buscaRoutes = require('./routes/busca');        // Busca unificada por nome parcial
+const judicialRoutes = require('./routes/judicial');  // Situacao judicial de parlamentares
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -87,6 +88,7 @@ app.use('/api/senado', senadoRoutes);       // /api/senado/senadores, /api/senad
 app.use('/api/tse', tseRoutes);             // /api/tse/candidatos/:ano, /api/tse/prestacao-contas/:ano, etc.
 app.use('/api/noticias', noticiasRoutes);   // /api/noticias, /api/noticias/fontes
 app.use('/api/busca', buscaRoutes);         // /api/busca?termo=nome
+app.use('/api/judicial', judicialRoutes);   // /api/judicial, /api/judicial/deputado/:id, etc.
 
 // Rota raiz - serve a pagina principal
 app.get('/', (req, res) => {

@@ -44,6 +44,10 @@ function setupNavigation() {
       document.getElementById(secId).classList.add('active');
 
       // Carregar dados ao acessar a aba pela primeira vez
+      if (btn.dataset.section === 'deputados' && !state.deputadosLoaded) {
+        buscarDeputados();
+        state.deputadosLoaded = true;
+      }
       if (btn.dataset.section === 'senadores' && !state.senadoresLoaded) {
         buscarSenadores();
         state.senadoresLoaded = true;

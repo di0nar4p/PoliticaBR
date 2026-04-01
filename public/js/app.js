@@ -182,26 +182,19 @@ async function buscarDeputados(pagina = 1) {
   const partido = document.getElementById('dep-partido').value;
   const uf = document.getElementById('dep-uf').value;
 
+  const judicial = document.getElementById('dep-judicial').value;
   const params = new URLSearchParams({ pagina, itens: 15 });
   if (nome) params.set('nome', nome);
   if (partido) params.set('siglaPartido', partido);
   if (uf) params.set('siglaUf', uf);
+  if (judicial) params.set('situacaoJudicial', judicial);
 
   try {
     const res = await fetch(`/api/camara/deputados?${params}`, {
       signal: state.depController.signal
     });
     const data = await res.json();
-    let deputados = data.dados || [];
-
-    // Filtro por situacao judicial (client-side)
-    const filtroJudicial = document.getElementById('dep-judicial').value;
-    if (filtroJudicial) {
-      deputados = deputados.filter(d => {
-        const info = state.judicial.deputados?.[String(d.id)];
-        return info?.status === filtroJudicial;
-      });
-    }
+    const deputados = data.dados || [];
 
     if (deputados.length === 0) {
       emptyState('dep-results', 'Nenhum deputado encontrado.');
@@ -391,27 +384,19 @@ async function buscarSenadores() {
   const partido = document.getElementById('sen-partido').value;
   const uf = document.getElementById('sen-uf').value;
 
+  const judicial = document.getElementById('sen-judicial').value;
   const params = new URLSearchParams();
   if (nome) params.set('nome', nome);
   if (partido) params.set('siglaPartido', partido);
   if (uf) params.set('siglaUf', uf);
+  if (judicial) params.set('situacaoJudicial', judicial);
 
   try {
     const res = await fetch(`/api/senado/senadores?${params}`, {
       signal: state.senController.signal
     });
     const data = await res.json();
-    let senadores = data.dados || [];
-
-    // Filtro por situacao judicial (client-side)
-    const filtroJudicial = document.getElementById('sen-judicial').value;
-    if (filtroJudicial) {
-      senadores = senadores.filter(s => {
-        const codigo = s.IdentificacaoParlamentar?.CodigoParlamentar;
-        const info = state.judicial.senadores?.[String(codigo)];
-        return info?.status === filtroJudicial;
-      });
-    }
+    const senadores = data.dados || [];
 
     if (senadores.length === 0) {
       emptyState('sen-results', 'Nenhum senador encontrado.');

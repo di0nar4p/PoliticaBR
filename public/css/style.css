@@ -305,6 +305,74 @@ body {
   color: var(--success);
 }
 
+/* Judicial Status Badge */
+.badge-judicial {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  position: relative;
+  cursor: help;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+}
+
+.badge-condenado {
+  background: #fdedec;
+  color: var(--danger);
+  border: 1px solid #f5b7b1;
+}
+
+.badge-investigado {
+  background: #fef9e7;
+  color: #b7791f;
+  border: 1px solid #f9e79f;
+}
+
+.badge-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-dark);
+  color: white;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.4;
+  white-space: normal;
+  width: 280px;
+  max-width: 90vw;
+  z-index: 50;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  pointer-events: none;
+}
+
+.badge-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--primary-dark);
+}
+
+.badge-judicial:hover .badge-tooltip {
+  display: block;
+}
+
+.badge-judicial:hover {
+  z-index: 10;
+}
+
 /* Detail Modal */
 .modal-overlay {
   display: none;
@@ -586,5 +654,16 @@ body {
 
   .modal-overlay {
     padding: 0.5rem;
+  }
+
+  .badge-tooltip {
+    left: 0;
+    transform: none;
+    width: 220px;
+  }
+
+  .badge-tooltip::after {
+    left: 20px;
+    transform: none;
   }
 }

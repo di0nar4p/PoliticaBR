@@ -29,17 +29,23 @@ const api = axios.create({
   headers: { 'Accept': 'application/json' }
 });
 
+// Cache de dados locais carregado no startup (evita readFileSync a cada request)
+const localCache = {};
+
 /**
  * Carrega um arquivo JSON do diretorio de dados locais.
+ * Usa cache em memoria apos a primeira leitura.
  */
 function loadLocal(filename) {
+  if (localCache[filename] !== undefined) return localCache[filename];
   try {
     const filepath = path.join(DATA_DIR, filename);
     const raw = fs.readFileSync(filepath, 'utf-8');
-    return JSON.parse(raw);
+    localCache[filename] = JSON.parse(raw);
   } catch {
-    return null;
+    localCache[filename] = null;
   }
+  return localCache[filename];
 }
 
 /**
@@ -64,8 +70,14 @@ function formatDataset(result) {
 }
 
 /**
- * GET /datasets
- * Lista todos os datasets disponiveis no portal do TSE.
+ * @openapi
+ * /tse/datasets:
+ *   get:
+ *     summary: Lista datasets do portal do TSE
+ *     tags: [TSE]
+ *     responses:
+ *       200:
+ *         description: Lista de datasets disponiveis
  */
 router.get('/datasets', async (req, res) => {
   try {
@@ -80,8 +92,16 @@ router.get('/datasets', async (req, res) => {
 });
 
 /**
- * GET /dataset/:id
- * Retorna metadados de um dataset especifico pelo ID CKAN.
+ * @openapi
+ * /tse/dataset/{id}:
+ *   get:
+ *     summary: Metadados de um dataset do TSE
+ *     tags: [TSE]
+ *     parameters:
+ *       - {name: id, in: path, required: true, schema: {type: string}, description: ID CKAN do dataset}
+ *     responses:
+ *       200:
+ *         description: Metadados do dataset
  */
 router.get('/dataset/:id', async (req, res) => {
   try {
@@ -94,9 +114,18 @@ router.get('/dataset/:id', async (req, res) => {
 });
 
 /**
- * GET /candidatos/:ano
- * Retorna metadados e links de download do dataset de candidatos
- * para um ano eleitoral especifico (ex: 2022, 2024).
+ * @openapi
+ * /tse/candidatos/{ano}:
+ *   get:
+ *     summary: Dataset de candidatos por ano eleitoral
+ *     tags: [TSE]
+ *     parameters:
+ *       - {name: ano, in: path, required: true, schema: {type: integer}, description: "Ano eleitoral (ex: 2022, 2024)"}
+ *     responses:
+ *       200:
+ *         description: Metadados e links de download
+ *       404:
+ *         description: Dataset nao encontrado para este ano
  */
 router.get('/candidatos/:ano', async (req, res) => {
   const ano = req.params.ano;
@@ -119,9 +148,18 @@ router.get('/candidatos/:ano', async (req, res) => {
 });
 
 /**
- * GET /prestacao-contas/:ano
- * Retorna metadados e links de download do dataset de prestacao
- * de contas eleitorais para um ano especifico.
+ * @openapi
+ * /tse/prestacao-contas/{ano}:
+ *   get:
+ *     summary: Dataset de prestacao de contas por ano
+ *     tags: [TSE]
+ *     parameters:
+ *       - {name: ano, in: path, required: true, schema: {type: integer}, description: "Ano eleitoral (ex: 2022, 2024)"}
+ *     responses:
+ *       200:
+ *         description: Metadados e links de download
+ *       404:
+ *         description: Dataset nao encontrado para este ano
  */
 router.get('/prestacao-contas/:ano', async (req, res) => {
   const ano = req.params.ano;

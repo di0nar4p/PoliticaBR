@@ -30,18 +30,23 @@ const api = axios.create({
   headers: { 'Accept': 'application/json' }
 });
 
+// Cache de dados locais carregado no startup (evita readFileSync a cada request)
+const localCache = {};
+
 /**
  * Carrega um arquivo JSON do diretorio de dados locais.
- * Retorna null se o arquivo nao existir ou for invalido.
+ * Usa cache em memoria apos a primeira leitura.
  */
 function loadLocal(filename) {
+  if (localCache[filename] !== undefined) return localCache[filename];
   try {
     const filepath = path.join(DATA_DIR, filename);
     const raw = fs.readFileSync(filepath, 'utf-8');
-    return JSON.parse(raw);
+    localCache[filename] = JSON.parse(raw);
   } catch {
-    return null;
+    localCache[filename] = null;
   }
+  return localCache[filename];
 }
 
 /**
@@ -89,10 +94,20 @@ function paginate(items, pagina = 1, itens = 15) {
 }
 
 /**
- * GET /deputados
- * Lista deputados com filtros opcionais (nome, partido, UF).
- * Quando ha busca por nome, usa dados locais para busca parcial.
- * Sem nome, consulta a API e faz fallback local se falhar.
+ * @openapi
+ * /camara/deputados:
+ *   get:
+ *     summary: Lista deputados federais
+ *     tags: [Camara]
+ *     parameters:
+ *       - {name: nome, in: query, schema: {type: string}, description: Busca parcial por nome}
+ *       - {name: siglaPartido, in: query, schema: {type: string}, description: "Filtro por partido (ex: PT, PL)"}
+ *       - {name: siglaUf, in: query, schema: {type: string}, description: "Filtro por UF (ex: SP, RJ)"}
+ *       - {name: pagina, in: query, schema: {type: integer, default: 1}}
+ *       - {name: itens, in: query, schema: {type: integer, default: 15}}
+ *     responses:
+ *       200:
+ *         description: Lista paginada de deputados
  */
 router.get('/deputados', async (req, res) => {
   const { nome, siglaPartido, siglaUf, pagina = 1, itens = 15 } = req.query;
@@ -127,9 +142,18 @@ router.get('/deputados', async (req, res) => {
 });
 
 /**
- * GET /deputados/:id
- * Retorna detalhes de um deputado especifico.
- * Fallback local monta uma resposta compativel com o formato da API.
+ * @openapi
+ * /camara/deputados/{id}:
+ *   get:
+ *     summary: Detalhes de um deputado
+ *     tags: [Camara]
+ *     parameters:
+ *       - {name: id, in: path, required: true, schema: {type: integer}, description: ID do deputado}
+ *     responses:
+ *       200:
+ *         description: Dados detalhados do deputado
+ *       404:
+ *         description: Deputado nao encontrado
  */
 router.get('/deputados/:id', async (req, res) => {
   try {
@@ -166,9 +190,19 @@ router.get('/deputados/:id', async (req, res) => {
 });
 
 /**
- * GET /deputados/:id/despesas
- * Retorna despesas parlamentares (cota CEAP) de um deputado.
- * Nao possui fallback local (dados individuais nao sao cacheados).
+ * @openapi
+ * /camara/deputados/{id}/despesas:
+ *   get:
+ *     summary: Despesas parlamentares de um deputado
+ *     tags: [Camara]
+ *     parameters:
+ *       - {name: id, in: path, required: true, schema: {type: integer}}
+ *       - {name: ano, in: query, schema: {type: integer}, description: Ano das despesas}
+ *       - {name: pagina, in: query, schema: {type: integer, default: 1}}
+ *       - {name: itens, in: query, schema: {type: integer, default: 30}}
+ *     responses:
+ *       200:
+ *         description: Lista de despesas (cota CEAP)
  */
 router.get('/deputados/:id/despesas', async (req, res) => {
   try {
@@ -185,8 +219,19 @@ router.get('/deputados/:id/despesas', async (req, res) => {
 });
 
 /**
- * GET /proposicoes
- * Lista proposicoes legislativas (PL, PEC, etc.) com filtros.
+ * @openapi
+ * /camara/proposicoes:
+ *   get:
+ *     summary: Lista proposicoes legislativas
+ *     tags: [Camara]
+ *     parameters:
+ *       - {name: siglaTipo, in: query, schema: {type: string}, description: "Tipo (ex: PL, PEC, MPV)"}
+ *       - {name: ano, in: query, schema: {type: integer}}
+ *       - {name: pagina, in: query, schema: {type: integer, default: 1}}
+ *       - {name: itens, in: query, schema: {type: integer, default: 15}}
+ *     responses:
+ *       200:
+ *         description: Lista de proposicoes
  */
 router.get('/proposicoes', async (req, res) => {
   try {
@@ -203,9 +248,17 @@ router.get('/proposicoes', async (req, res) => {
 });
 
 /**
- * GET /votacoes
- * Lista votacoes recentes do plenario.
- * Fallback para dados locais se a API falhar.
+ * @openapi
+ * /camara/votacoes:
+ *   get:
+ *     summary: Votacoes recentes do plenario
+ *     tags: [Camara]
+ *     parameters:
+ *       - {name: pagina, in: query, schema: {type: integer, default: 1}}
+ *       - {name: itens, in: query, schema: {type: integer, default: 15}}
+ *     responses:
+ *       200:
+ *         description: Lista de votacoes
  */
 router.get('/votacoes', async (req, res) => {
   try {
@@ -225,9 +278,14 @@ router.get('/votacoes', async (req, res) => {
 });
 
 /**
- * GET /partidos
- * Lista todos os partidos politicos registrados.
- * Fallback para dados locais se a API falhar.
+ * @openapi
+ * /camara/partidos:
+ *   get:
+ *     summary: Lista partidos politicos
+ *     tags: [Camara]
+ *     responses:
+ *       200:
+ *         description: Lista de partidos
  */
 router.get('/partidos', async (req, res) => {
   try {

@@ -18,15 +18,21 @@ const router = express.Router();
 // Diretorio dos dados locais
 const DATA_DIR = path.join(__dirname, '..', 'data');
 
+// Cache de dados locais carregado no startup (evita readFileSync a cada request)
+const localCache = {};
+
 /**
  * Carrega um arquivo JSON do diretorio de dados locais.
+ * Usa cache em memoria apos a primeira leitura.
  */
 function loadLocal(filename) {
+  if (localCache[filename] !== undefined) return localCache[filename];
   try {
-    return JSON.parse(fs.readFileSync(path.join(DATA_DIR, filename), 'utf-8'));
+    localCache[filename] = JSON.parse(fs.readFileSync(path.join(DATA_DIR, filename), 'utf-8'));
   } catch {
-    return null;
+    localCache[filename] = null;
   }
+  return localCache[filename];
 }
 
 /**
@@ -101,10 +107,18 @@ function buscarSenadores(termo) {
 }
 
 /**
- * GET /
- * Busca unificada por nome parcial em deputados e senadores.
- * Requer pelo menos 2 caracteres. Retorna resultados ordenados
- * alfabeticamente com contagem separada por tipo.
+ * @openapi
+ * /busca:
+ *   get:
+ *     summary: Busca unificada por nome em deputados e senadores
+ *     tags: [Busca]
+ *     parameters:
+ *       - {name: termo, in: query, required: true, schema: {type: string, minLength: 2}, description: "Termo de busca (minimo 2 caracteres)"}
+ *     responses:
+ *       200:
+ *         description: Resultados ordenados alfabeticamente
+ *       400:
+ *         description: Termo de busca muito curto
  */
 router.get('/', (req, res) => {
   const { termo } = req.query;

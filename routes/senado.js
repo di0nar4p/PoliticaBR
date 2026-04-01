@@ -29,17 +29,23 @@ const api = axios.create({
   headers: { 'Accept': 'application/json' }
 });
 
+// Cache de dados locais carregado no startup (evita readFileSync a cada request)
+const localCache = {};
+
 /**
  * Carrega um arquivo JSON do diretorio de dados locais.
+ * Usa cache em memoria apos a primeira leitura.
  */
 function loadLocal(filename) {
+  if (localCache[filename] !== undefined) return localCache[filename];
   try {
     const filepath = path.join(DATA_DIR, filename);
     const raw = fs.readFileSync(filepath, 'utf-8');
-    return JSON.parse(raw);
+    localCache[filename] = JSON.parse(raw);
   } catch {
-    return null;
+    localCache[filename] = null;
   }
+  return localCache[filename];
 }
 
 /**
@@ -89,10 +95,18 @@ function filterSenadores(senadores, { nome, siglaPartido, siglaUf }) {
 }
 
 /**
- * GET /senadores
- * Lista senadores em exercicio com filtros opcionais.
- * Busca por nome usa dados locais para busca parcial com normalize.
- * Sem nome, consulta a API e faz fallback local se falhar.
+ * @openapi
+ * /senado/senadores:
+ *   get:
+ *     summary: Lista senadores em exercicio
+ *     tags: [Senado]
+ *     parameters:
+ *       - {name: nome, in: query, schema: {type: string}, description: Busca parcial por nome}
+ *       - {name: siglaPartido, in: query, schema: {type: string}, description: "Filtro por partido (ex: PT, PL)"}
+ *       - {name: siglaUf, in: query, schema: {type: string}, description: "Filtro por UF (ex: SP, RJ)"}
+ *     responses:
+ *       200:
+ *         description: Lista de senadores
  */
 router.get('/senadores', async (req, res) => {
   const { nome, siglaPartido, siglaUf } = req.query;
@@ -127,9 +141,18 @@ router.get('/senadores', async (req, res) => {
 });
 
 /**
- * GET /senadores/:codigo
- * Retorna detalhes de um senador pelo seu codigo parlamentar.
- * Fallback local monta uma resposta compativel com o formato da API.
+ * @openapi
+ * /senado/senadores/{codigo}:
+ *   get:
+ *     summary: Detalhes de um senador
+ *     tags: [Senado]
+ *     parameters:
+ *       - {name: codigo, in: path, required: true, schema: {type: string}, description: Codigo parlamentar}
+ *     responses:
+ *       200:
+ *         description: Dados detalhados do senador
+ *       404:
+ *         description: Senador nao encontrado
  */
 router.get('/senadores/:codigo', async (req, res) => {
   try {
@@ -163,8 +186,17 @@ router.get('/senadores/:codigo', async (req, res) => {
 });
 
 /**
- * GET /senadores/:codigo/votacoes
- * Retorna historico de votacoes de um senador, filtravel por ano.
+ * @openapi
+ * /senado/senadores/{codigo}/votacoes:
+ *   get:
+ *     summary: Votacoes de um senador
+ *     tags: [Senado]
+ *     parameters:
+ *       - {name: codigo, in: path, required: true, schema: {type: string}}
+ *       - {name: ano, in: query, schema: {type: integer}}
+ *     responses:
+ *       200:
+ *         description: Historico de votacoes
  */
 router.get('/senadores/:codigo/votacoes', async (req, res) => {
   try {
@@ -180,8 +212,16 @@ router.get('/senadores/:codigo/votacoes', async (req, res) => {
 });
 
 /**
- * GET /senadores/:codigo/autorias
- * Retorna projetos de autoria de um senador.
+ * @openapi
+ * /senado/senadores/{codigo}/autorias:
+ *   get:
+ *     summary: Projetos de autoria de um senador
+ *     tags: [Senado]
+ *     parameters:
+ *       - {name: codigo, in: path, required: true, schema: {type: string}}
+ *     responses:
+ *       200:
+ *         description: Lista de autorias
  */
 router.get('/senadores/:codigo/autorias', async (req, res) => {
   try {

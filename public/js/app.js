@@ -19,6 +19,7 @@ const state = {
   depController: null,
   senController: null,
   newsController: null,
+  judicial: { deputados: {}, senadores: {} },
 };
 
 const UFS = [
@@ -27,12 +28,37 @@ const UFS = [
 ];
 
 // ==================== Inicializacao ====================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  await carregarDadosJudiciais();
   setupNavigation();
   populateUFs();
   carregarPartidos();
   carregarFontes();
 });
+
+async function carregarDadosJudiciais() {
+  try {
+    const res = await fetch('/api/judicial');
+    const data = await res.json();
+    state.judicial = data;
+  } catch (e) {
+    console.error('Erro ao carregar dados judiciais:', e);
+  }
+}
+
+function badgeJudicial(tipo, id) {
+  const map = tipo === 'deputado'
+    ? state.judicial.deputados
+    : state.judicial.senadores;
+  const info = map?.[String(id)];
+  if (!info) return '';
+
+  const isCondenado = info.status === 'condenado';
+  const badgeClass = isCondenado ? 'badge-condenado' : 'badge-investigado';
+  const label = isCondenado ? 'Condenado' : 'Investigado';
+
+  return `<span class="badge-judicial ${badgeClass}" onclick="event.stopPropagation()">${label}<span class="badge-tooltip">${info.resumo}<br><em>${info.fonte}</em></span></span>`;
+}
 
 function setupNavigation() {
   document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -202,7 +228,7 @@ async function buscarDeputados(pagina = 1) {
         <div class="card-header">
           <img class="card-avatar" src="${d.urlFoto}" alt="${d.nome}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/><text x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23999%22 font-size=%2240%22>${d.nome[0]}</text></svg>'">
           <div>
-            <div class="card-name">${d.nome}</div>
+            <div class="card-name">${d.nome} ${badgeJudicial('deputado', d.id)}</div>
             <div class="card-subtitle">${d.email || ''}</div>
           </div>
         </div>
@@ -404,7 +430,7 @@ async function buscarSenadores() {
           <div class="card-header">
             <img class="card-avatar" src="${id?.UrlFotoParlamentar || ''}" alt="${id?.NomeParlamentar || ''}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/><text x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23999%22 font-size=%2240%22>${(id?.NomeParlamentar || '?')[0]}</text></svg>'">
             <div>
-              <div class="card-name">${id?.NomeParlamentar || '-'}</div>
+              <div class="card-name">${id?.NomeParlamentar || '-'} ${badgeJudicial('senador', id?.CodigoParlamentar)}</div>
               <div class="card-subtitle">${id?.NomeCompletoParlamentar || ''}</div>
             </div>
           </div>
@@ -712,7 +738,7 @@ async function buscaGeral() {
           <div class="card-header">
             <img class="card-avatar" src="${r.foto || ''}" alt="${r.nome}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/><text x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23999%22 font-size=%2240%22>${(r.nome || '?')[0]}</text></svg>'">
             <div>
-              <div class="card-name">${r.nome}</div>
+              <div class="card-name">${r.nome} ${badgeJudicial(r.fonte === 'camara' ? 'deputado' : 'senador', r.id)}</div>
               <div class="card-subtitle">${r.nomeCompleto || r.email || ''}</div>
             </div>
           </div>

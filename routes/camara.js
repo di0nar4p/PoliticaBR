@@ -110,19 +110,24 @@ function paginate(items, pagina = 1, itens = 15) {
  *         description: Lista paginada de deputados
  */
 router.get('/deputados', async (req, res) => {
-  const { nome, siglaPartido, siglaUf, pagina = 1, itens = 15 } = req.query;
+  const { nome, siglaPartido, siglaUf, situacaoJudicial, pagina = 1, itens = 15 } = req.query;
 
-  // Busca por nome usa dados locais (API so busca por prefixo)
-  if (nome) {
+  // Filtro judicial ou busca por nome usam dados locais
+  if (nome || situacaoJudicial) {
     const local = loadLocal('deputados.json');
     if (!local || !local.dados) {
       return res.status(500).json({ erro: 'Dados locais nao disponiveis' });
     }
-    const filtered = filterByFields(local.dados, { nome, siglaPartido, siglaUf });
+    let filtered = filterByFields(local.dados, { nome, siglaPartido, siglaUf });
+    if (situacaoJudicial) {
+      const judicial = loadLocal('situacao_judicial.json');
+      const mapa = judicial?.deputados || {};
+      filtered = filtered.filter(d => mapa[String(d.id)]?.status === situacaoJudicial);
+    }
     return res.json(paginate(filtered, Number(pagina), Number(itens)));
   }
 
-  // Sem nome, consulta a API normalmente
+  // Sem filtros especiais, consulta a API normalmente
   try {
     const params = { pagina, itens, ordem: 'ASC', ordenarPor: 'nome' };
     if (siglaPartido) params.siglaPartido = siglaPartido;

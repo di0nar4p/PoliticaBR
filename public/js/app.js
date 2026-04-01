@@ -57,7 +57,7 @@ function badgeJudicial(tipo, id) {
   const badgeClass = isCondenado ? 'badge-condenado' : 'badge-investigado';
   const label = isCondenado ? 'Condenado' : 'Investigado';
 
-  return `<span class="badge-judicial ${badgeClass}" onclick="event.stopPropagation()">${label}<span class="badge-tooltip">${info.resumo}<br><em>${info.fonte}</em></span></span>`;
+  return `<a class="badge-judicial ${badgeClass}" href="${info.url || '#'}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${label}<span class="badge-tooltip">${info.resumo}<br><em>${info.fonte}</em></span></a>`;
 }
 
 function setupNavigation() {
@@ -192,7 +192,16 @@ async function buscarDeputados(pagina = 1) {
       signal: state.depController.signal
     });
     const data = await res.json();
-    const deputados = data.dados || [];
+    let deputados = data.dados || [];
+
+    // Filtro por situacao judicial (client-side)
+    const filtroJudicial = document.getElementById('dep-judicial').value;
+    if (filtroJudicial) {
+      deputados = deputados.filter(d => {
+        const info = state.judicial.deputados?.[String(d.id)];
+        return info?.status === filtroJudicial;
+      });
+    }
 
     if (deputados.length === 0) {
       emptyState('dep-results', 'Nenhum deputado encontrado.');
@@ -392,7 +401,17 @@ async function buscarSenadores() {
       signal: state.senController.signal
     });
     const data = await res.json();
-    const senadores = data.dados || [];
+    let senadores = data.dados || [];
+
+    // Filtro por situacao judicial (client-side)
+    const filtroJudicial = document.getElementById('sen-judicial').value;
+    if (filtroJudicial) {
+      senadores = senadores.filter(s => {
+        const codigo = s.IdentificacaoParlamentar?.CodigoParlamentar;
+        const info = state.judicial.senadores?.[String(codigo)];
+        return info?.status === filtroJudicial;
+      });
+    }
 
     if (senadores.length === 0) {
       emptyState('sen-results', 'Nenhum senador encontrado.');

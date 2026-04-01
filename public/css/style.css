@@ -315,9 +315,10 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.3px;
   position: relative;
-  cursor: help;
+  cursor: pointer;
   vertical-align: middle;
   margin-left: 0.4rem;
+  text-decoration: none;
 }
 
 .badge-condenado {

@@ -109,20 +109,32 @@ function filterSenadores(senadores, { nome, siglaPartido, siglaUf }) {
  *         description: Lista de senadores
  */
 router.get('/senadores', async (req, res) => {
-  const { nome, siglaPartido, siglaUf } = req.query;
+  const { nome, siglaPartido, siglaUf, situacaoJudicial } = req.query;
+
+  // Funcao auxiliar para aplicar filtro judicial sobre a lista
+  function aplicarFiltroJudicial(senadores) {
+    if (!situacaoJudicial) return senadores;
+    const judicial = loadLocal('situacao_judicial.json');
+    const mapa = judicial?.senadores || {};
+    return senadores.filter(s => {
+      const codigo = s.IdentificacaoParlamentar?.CodigoParlamentar;
+      return mapa[String(codigo)]?.status === situacaoJudicial;
+    });
+  }
 
   // Busca por nome usa dados locais (busca parcial com normalize)
-  if (nome) {
+  if (nome || situacaoJudicial) {
     const local = loadLocal('senadores.json');
     if (!local) {
       return res.status(500).json({ erro: 'Dados locais nao disponiveis' });
     }
     let senadores = extractSenadores(local);
     senadores = filterSenadores(senadores, { nome, siglaPartido, siglaUf });
+    senadores = aplicarFiltroJudicial(senadores);
     return res.json({ dados: senadores, total: senadores.length });
   }
 
-  // Sem nome, consulta a API normalmente
+  // Sem filtros especiais, consulta a API normalmente
   try {
     const response = await api.get('/senador/lista/atual');
     let senadores = extractSenadores(response.data);

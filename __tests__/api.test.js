@@ -87,6 +87,22 @@ describe('Noticias', () => {
   });
 });
 
+describe('Situacao Judicial', () => {
+  test('GET /api/judicial retorna mapa de deputados e senadores', async () => {
+    const res = await request(app).get('/api/judicial');
+    expect(res.status).toBe(200);
+    expect(res.body.deputados).toBeDefined();
+    expect(res.body.senadores).toBeDefined();
+    expect(typeof res.body.deputados).toBe('object');
+    expect(typeof res.body.senadores).toBe('object');
+  });
+
+  test('GET /api/judicial/deputado/:id retorna 404 para ID inexistente', async () => {
+    const res = await request(app).get('/api/judicial/deputado/999999');
+    expect(res.status).toBe(404);
+  });
+});
+
 describe('Swagger docs', () => {
   test('GET /api-docs responde com HTML', async () => {
     const res = await request(app).get('/api-docs/');

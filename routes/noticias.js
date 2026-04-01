@@ -15,12 +15,18 @@
 const express = require('express');
 const axios = require('axios');
 const xml2js = require('xml2js');
+const { Buffer } = require('buffer');
+const iconv = require('iconv-lite');
 const fs = require('fs');
 const path = require('path');
 const router = express.Router();
 
 // Diretorio dos arquivos XML de cache local
 const DATA_DIR = path.join(__dirname, '..', 'data');
+
+// Cache em memoria para feeds RSS (evita re-fetch a cada request)
+const feedCache = new Map();
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutos
 
 /**
  * Mapa de todas as fontes RSS configuradas.
@@ -48,9 +54,9 @@ const RSS_FEEDS = {
     categoria: 'governo'
   },
   agenciabrasil: {
-    url: 'https://agenciabrasil.ebc.com.br/rss/ultimasnoticias/feed.xml',
+    url: 'https://agenciabrasil.ebc.com.br/rss/politica/feed.xml',
     file: 'noticias_agenciabrasil.xml',
-    nome: 'Agencia Brasil',
+    nome: 'Agencia Brasil - Politica',
     categoria: 'governo'
   },
   govbr: {
@@ -95,19 +101,22 @@ const RSS_FEEDS = {
     url: 'https://www.poder360.com.br/feed/',
     file: 'noticias_poder360.xml',
     nome: 'Poder360',
-    categoria: 'portal'
+    categoria: 'portal',
+    filtrarPolitica: true
   },
   cartacapital: {
     url: 'https://www.cartacapital.com.br/politica/feed/',
     file: 'noticias_cartacapital.xml',
     nome: 'CartaCapital - Politica',
-    categoria: 'portal'
+    categoria: 'portal',
+    filtrarPolitica: true
   },
   bbc_brasil: {
-    url: 'https://feeds.bbci.co.uk/portuguese/rss.xml',
+    url: 'https://feeds.bbci.co.uk/portuguese/brasil/rss.xml',
     file: 'noticias_bbc_brasil.xml',
     nome: 'BBC Brasil',
-    categoria: 'portal'
+    categoria: 'portal',
+    filtrarPolitica: true
   },
   gazeta_politica: {
     url: 'https://www.gazetadopovo.com.br/feed/rss/republica.xml',
@@ -127,22 +136,98 @@ const RSS_FEEDS = {
     nome: 'Gazeta do Povo - STF',
     categoria: 'portal'
   },
-  r7: {
-    url: 'https://noticias.r7.com/feed.xml',
-    file: 'noticias_r7.xml',
-    nome: 'R7 Noticias',
-    categoria: 'portal'
-  }
 };
+
+// Termos para filtrar noticias de feeds generalistas por relevancia politica brasileira.
+// Atualizado em 2026-03. Nomes de politicos devem ser revisados apos cada eleicao.
+const TERMOS_POLITICA = [
+  // Instituicoes brasileiras (inequivocamente politicas)
+  'congresso nacional', 'senado federal', 'camara dos deputados',
+  'planalto', 'palacio da alvorada', 'supremo tribunal federal',
+  'stf', 'tse', 'tcu', 'cgu', 'pgr', 'policia federal',
+  'ministerio publico', 'mpf', 'justica federal',
+  'tribunal de contas', 'tribunal superior', 'advocacia-geral',
+
+  // Cargos politicos
+  'senador', 'senadora', 'deputad', 'vereador', 'vereadora',
+  'governador', 'governadora', 'prefeito', 'prefeita',
+  'ministr', 'presidente lula', 'presidente da republica', 'vice-presidente',
+
+  // Termos politicos gerais (seguros por serem usados em feeds ja brasileiros)
+  'politic', 'congresso', 'senado', 'legislativ',
+
+  // Processos legislativos e juridicos
+  'pec ', 'medida provisoria', 'plenario', 'relator',
+  'votacao', 'eleicao', 'eleitora', 'impeachment', 'cpi',
+  'oposicao', 'coalizao', 'base aliada', 'base governista',
+  'delacao', 'indiciamento', 'cassacao', 'inelegib',
+  'justica militar', 'stj', 'ditadura',
+
+  // Politica economica
+  'reforma tributar', 'reforma administr', 'orcamento federal',
+  'privatiza', 'estatal', 'regulament',
+  'corrupcao', 'lavagem de dinheiro',
+
+  // Politica externa
+  'itamaraty', 'politica externa', 'diplomaci',
+
+  // Politicos em exercicio (atualizar periodicamente)
+  'lula', 'alckmin', 'pacheco', 'haddad', 'moraes', 'barroso',
+  'bolsonaro', 'tarcisio', 'hugo motta', 'randolfe', 'flavio dino',
+  'zanin', 'fachin', 'gilmar mendes', 'galipolo', 'tebet',
+  'nunes marques', 'ciro gomes', 'boulos'
+];
+
+// Termos que indicam conteudo exclusivamente internacional (sem nexo brasileiro).
+// Se um item contem um destes, so e mantido se tambem mencionar o Brasil.
+const TERMOS_EXCLUSAO = [
+  'trump', 'biden', 'casa branca', 'white house',
+  'kremlin', 'putin', 'zelensky', 'kiev',
+  'parlamento europeu', 'nato', 'otan',
+  'xi jinping', 'partido comunista chines'
+];
+
+// Termos que confirmam nexo brasileiro quando ha termo de exclusao
+const TERMOS_NEXO_BR = [
+  'brasil', 'brasileir', 'lula', 'planalto', 'itamaraty',
+  'congresso nacional', 'senado federal', 'camara dos deputados',
+  'stf', 'haddad', 'alckmin', 'bolsonaro', 'governo federal'
+];
 
 /**
  * Extrai e normaliza itens de um canal RSS/Atom/RDF.
  * Lida com diferentes formatos de link (string, objeto, array)
  * e remove tags HTML das descricoes. Limita a 20 itens por feed.
  */
-function parseItems(channel, fonte, categoria) {
+function parseItems(channel, fonte, categoria, filtrarPolitica = false) {
   let items = channel.item || channel.entry || [];
   if (!Array.isArray(items)) items = [items];
+
+  // Filtra itens que nao sao noticias (ex: Folder, Document, Collection do MPF)
+  items = items.filter(item => {
+    const tipo = item['dc:type'];
+    if (!tipo) return true;
+    return tipo === 'Noticia' || tipo === 'News Item';
+  });
+
+  // Filtra por relevancia politica em feeds generalistas
+  if (filtrarPolitica) {
+    items = items.filter(item => {
+      const texto = ((item.title?._ || item.title || '') + ' ' +
+        (item.description?._ || item.description || item.summary?._ || item.summary || ''))
+        .toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+      // Precisa conter ao menos um termo politico
+      if (!TERMOS_POLITICA.some(t => texto.includes(t))) return false;
+
+      // Se contem termo de exclusao internacional, so mantem com nexo brasileiro
+      if (TERMOS_EXCLUSAO.some(t => texto.includes(t))) {
+        return TERMOS_NEXO_BR.some(t => texto.includes(t));
+      }
+
+      return true;
+    });
+  }
 
   return items.slice(0, 20).map(item => {
     // Normaliza o campo link (varia entre formatos RSS/Atom/RDF)
@@ -162,11 +247,17 @@ function parseItems(channel, fonte, categoria) {
 }
 
 /**
- * Busca um feed RSS por chave. Tenta online primeiro (timeout 8s),
- * e em caso de falha usa o arquivo XML de cache local.
- * Suporta formatos RSS 2.0, RSS 0.91, Atom e RDF.
+ * Busca um feed RSS por chave com cache em memoria (TTL 5 min).
+ * Tenta online primeiro (timeout 8s), e em caso de falha usa
+ * o arquivo XML de cache local. Suporta RSS 2.0, RSS 0.91, Atom e RDF.
  */
 async function fetchRSS(key) {
+  // Retorna do cache se ainda valido
+  const cached = feedCache.get(key);
+  if (cached && Date.now() - cached.time < CACHE_TTL) {
+    return cached.data;
+  }
+
   const feed = RSS_FEEDS[key];
   const parser = new xml2js.Parser({ explicitArray: false });
 
@@ -179,11 +270,30 @@ async function fetchRSS(key) {
         'Accept': 'application/rss+xml, application/xml, text/xml, */*',
         'Accept-Encoding': 'gzip, deflate'
       },
-      decompress: true
+      decompress: true,
+      responseType: 'arraybuffer'
     });
-    const result = await parser.parseStringPromise(response.data);
+    const buf = Buffer.from(response.data);
+    // Detecta encoding pelo Content-Type ou pela declaracao XML
+    let encoding = 'utf-8';
+    const ct = (response.headers['content-type'] || '').toLowerCase();
+    const charsetMatch = ct.match(/charset=([^\s;]+)/);
+    if (charsetMatch) {
+      encoding = charsetMatch[1];
+    } else {
+      // Faz leitura parcial como latin1 para inspecionar a declaracao XML
+      const head = buf.slice(0, 200).toString('latin1');
+      const xmlMatch = head.match(/encoding=["']([^"']+)["']/i);
+      if (xmlMatch) encoding = xmlMatch[1];
+    }
+    const xmlStr = iconv.decode(buf, encoding);
+    const result = await parser.parseStringPromise(xmlStr);
     const channel = result?.rss?.channel || result?.feed || result?.['rdf:RDF'];
-    if (channel) return parseItems(channel, feed.nome, feed.categoria);
+    if (channel) {
+      const items = parseItems(channel, feed.nome, feed.categoria, feed.filtrarPolitica);
+      feedCache.set(key, { data: items, time: Date.now() });
+      return items;
+    }
   } catch (error) {
     console.log(`[noticias/${key}] RSS online falhou, usando cache local:`, error.message);
   }
@@ -191,10 +301,17 @@ async function fetchRSS(key) {
   // Fallback: cache XML local
   try {
     const filepath = path.join(DATA_DIR, feed.file);
-    const xml = fs.readFileSync(filepath, 'utf-8');
+    const raw = fs.readFileSync(filepath);
+    const head = raw.slice(0, 200).toString('latin1');
+    const encMatch = head.match(/encoding=["']([^"']+)["']/i);
+    const xml = iconv.decode(raw, encMatch ? encMatch[1] : 'utf-8');
     const result = await parser.parseStringPromise(xml);
     const channel = result?.rss?.channel || result?.feed || result?.['rdf:RDF'];
-    if (channel) return parseItems(channel, feed.nome + ' (cache)', feed.categoria);
+    if (channel) {
+      const items = parseItems(channel, feed.nome + ' (cache)', feed.categoria, feed.filtrarPolitica);
+      feedCache.set(key, { data: items, time: Date.now() });
+      return items;
+    }
   } catch {
     // Sem cache local disponivel
   }
@@ -203,9 +320,14 @@ async function fetchRSS(key) {
 }
 
 /**
- * GET /fontes
- * Lista todas as fontes de noticias configuradas (id, nome, categoria).
- * Usado pelo frontend para popular o select de filtro de fontes.
+ * @openapi
+ * /noticias/fontes:
+ *   get:
+ *     summary: Lista fontes de noticias configuradas
+ *     tags: [Noticias]
+ *     responses:
+ *       200:
+ *         description: Lista de fontes (id, nome, categoria)
  */
 router.get('/fontes', (req, res) => {
   const fontes = Object.entries(RSS_FEEDS).map(([key, feed]) => ({
@@ -217,11 +339,18 @@ router.get('/fontes', (req, res) => {
 });
 
 /**
- * GET /
- * Busca noticias de todas as fontes (ou filtradas por fonte/categoria).
- * Suporta busca textual parcial com normalizacao de acentos.
- * Todos os feeds sao buscados em paralelo para performance.
- * Resultados sao ordenados por data (mais recentes primeiro).
+ * @openapi
+ * /noticias:
+ *   get:
+ *     summary: Busca noticias politicas de todas as fontes
+ *     tags: [Noticias]
+ *     parameters:
+ *       - {name: fonte, in: query, schema: {type: string}, description: "ID da fonte (ex: g1_politica, folha_poder)"}
+ *       - {name: categoria, in: query, schema: {type: string, enum: [governo, portal]}, description: Filtro por categoria}
+ *       - {name: busca, in: query, schema: {type: string}, description: Busca textual parcial}
+ *     responses:
+ *       200:
+ *         description: Lista de noticias ordenadas por data
  */
 router.get('/', async (req, res) => {
   try {
@@ -240,8 +369,10 @@ router.get('/', async (req, res) => {
     }
 
     // Busca todos os feeds selecionados em paralelo
-    const results = await Promise.all(keys.map(k => fetchRSS(k)));
-    let noticias = results.flat();
+    const results = await Promise.allSettled(keys.map(k => fetchRSS(k)));
+    let noticias = results
+      .filter(r => r.status === 'fulfilled')
+      .flatMap(r => r.value);
 
     // Filtra por termo de busca (parcial, sem acentos)
     if (busca) {

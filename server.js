@@ -11,6 +11,11 @@
 
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const compression = require('compression');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 const path = require('path');
 
 // Importacao das rotas de cada modulo de dados
@@ -24,9 +29,57 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middlewares globais
-app.use(cors());                                            // Permite requisicoes cross-origin
-app.use(express.json());                                    // Parse de JSON no body das requests
-app.use(express.static(path.join(__dirname, 'public')));    // Serve arquivos estaticos (HTML, CSS, JS)
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',')
+  : undefined; // undefined = permite todas em desenvolvimento
+app.use(cors({ origin: allowedOrigins }));
+app.use(helmet({ contentSecurityPolicy: false }));          // Headers de seguranca (CSP desabilitado para nao bloquear inline scripts do frontend)
+app.use(compression());                                     // Compressao gzip das respostas
+app.use(rateLimit({
+  windowMs: 15 * 60 * 1000,  // 15 minutos
+  max: 200,                  // maximo de requests por IP
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { erro: 'Muitas requisicoes. Tente novamente em alguns minutos.' }
+}));
+app.use(express.json());
+
+// Sanitizacao de query params (limita tamanho e remove caracteres perigosos)
+app.use((req, res, next) => {
+  for (const [key, val] of Object.entries(req.query)) {
+    if (typeof val === 'string') {
+      if (val.length > 200) {
+        return res.status(400).json({ erro: `Parametro "${key}" excede o tamanho maximo` });
+      }
+      req.query[key] = val.replace(/[<>]/g, '');
+    }
+  }
+  next();
+});
+
+// Health check para monitoramento (antes do static para nao ser interceptado)
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+// Documentacao da API (Swagger/OpenAPI)
+const swaggerSpec = swaggerJsdoc({
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'PoliticaBR API',
+      version: '1.0.0',
+      description: 'API de dados abertos do governo brasileiro. Agrega informacoes da Camara dos Deputados, Senado Federal, TSE e noticias de 16 fontes via RSS.',
+    },
+    servers: [{ url: '/api' }],
+  },
+  apis: ['./routes/*.js'],
+});
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  customSiteTitle: 'PoliticaBR - API Docs',
+}));
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Registro das rotas da API
 app.use('/api/camara', camaraRoutes);       // /api/camara/deputados, /api/camara/partidos, etc.
@@ -40,7 +93,17 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Inicializacao do servidor
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+// Inicia o servidor apenas quando executado diretamente (nao em testes)
+if (require.main === module) {
+  const server = app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
+    console.log(`Documentacao da API em http://localhost:${PORT}/api-docs`);
+  });
+
+  process.on('SIGTERM', () => {
+    console.log('SIGTERM recebido, encerrando conexoes...');
+    server.close(() => process.exit(0));
+  });
+}
+
+module.exports = app;

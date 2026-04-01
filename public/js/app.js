@@ -60,6 +60,28 @@ function badgeJudicial(tipo, id) {
   return `<a class="badge-judicial ${badgeClass}" href="${info.url || '#'}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${label}<span class="badge-tooltip">${info.resumo}<br><em>${info.fonte}</em></span></a>`;
 }
 
+function secaoJudicialModal(tipo, id) {
+  const map = tipo === 'deputado'
+    ? state.judicial.deputados
+    : state.judicial.senadores;
+  const info = map?.[String(id)];
+  if (!info) return '';
+
+  const isCondenado = info.status === 'condenado';
+  const cor = isCondenado ? 'var(--danger)' : '#b7791f';
+  const bgCor = isCondenado ? '#fdedec' : '#fef9e7';
+  const label = isCondenado ? 'CONDENADO' : 'INVESTIGADO';
+
+  return `
+    <div class="detail-section" style="background:${bgCor};border-radius:var(--radius);padding:1.25rem;border-left:4px solid ${cor};">
+      <h3 style="color:${cor};margin-bottom:0.5rem;">Situacao Judicial - ${label}</h3>
+      <p style="margin-bottom:0.5rem;">${info.detalhes}</p>
+      <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:0.5rem;"><strong>Fonte:</strong> ${info.fonte}</p>
+      ${info.url ? `<a href="${info.url}" target="_blank" rel="noopener noreferrer" style="color:${cor};font-weight:600;">Ver fonte original</a>` : ''}
+    </div>
+  `;
+}
+
 function setupNavigation() {
   document.querySelectorAll('.nav-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -365,6 +387,7 @@ async function verDeputado(id) {
         </div>
       </div>
 
+      ${secaoJudicialModal('deputado', d.id)}
       ${despesasHTML}
     `;
   } catch (e) {
@@ -533,6 +556,7 @@ async function verSenador(codigo) {
           </div>
         </div>
       </div>
+      ${secaoJudicialModal('senador', id.CodigoParlamentar)}
       ${mandatosHTML}
     `;
   } catch (e) {

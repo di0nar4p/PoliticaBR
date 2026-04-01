@@ -10,6 +10,7 @@
       "resumo": "Condenado pelo TRE-RJ por captacao ilicita de sufragio nas eleicoes de 2016",
       "detalhes": "Gutemberg Reis foi condenado por abuso de poder economico e captacao ilicita de sufragio quando prefeito de Duque de Caxias. Teve mandato de prefeito cassado pelo TRE-RJ.",
       "fonte": "TRE-RJ - Acao de Investigacao Judicial Eleitoral",
+      "url": "https://www.tre-rj.jus.br",
       "data_atualizacao": "2026-04-01"
     },
     "160642": {
@@ -17,6 +18,7 @@
       "resumo": "Investigado no STF por peculato e organizacao criminosa",
       "detalhes": "Pastor Eurico e investigado no Inquerito 4922 do STF por suposto envolvimento em esquema de desvio de emendas parlamentares.",
       "fonte": "STF - Inquerito 4922",
+      "url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6299531",
       "data_atualizacao": "2026-04-01"
     }
   },
@@ -26,6 +28,7 @@
       "resumo": "Investigado por desvio de recursos publicos de saude",
       "detalhes": "Chico Rodrigues foi flagrado pela PF com dinheiro na cueca durante operacao de busca e apreensao em outubro de 2020, em investigacao sobre desvio de recursos federais destinados ao combate da pandemia em Roraima.",
       "fonte": "PF/STF - Operacao de busca e apreensao em outubro/2020",
+      "url": "https://portal.stf.jus.br",
       "data_atualizacao": "2026-04-01"
     },
     "3830": {
@@ -33,6 +36,7 @@
       "resumo": "Investigado no STF por corrupcao passiva e lavagem de dinheiro",
       "detalhes": "Davi Alcolumbre e investigado em inquerito no STF por suposto recebimento de propina de empresas de mineracao quando senador pelo Amapa. A PGR pediu abertura de acao penal.",
       "fonte": "STF/PGR - Inquerito por corrupcao passiva",
+      "url": "https://portal.stf.jus.br",
       "data_atualizacao": "2026-04-01"
     },
     "70": {
@@ -40,6 +44,7 @@
       "resumo": "Reu em acao penal no STF por lavagem de dinheiro (Lava Jato)",
       "detalhes": "Renan Calheiros e reu em acao penal no STF decorrente da Operacao Lava Jato, acusado de lavagem de dinheiro relacionada a propinas da Odebrecht.",
       "fonte": "STF - Acao Penal 1028 (desdobramento Lava Jato)",
+      "url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=5148856",
       "data_atualizacao": "2026-04-01"
     }
   }
